@@ -4,9 +4,9 @@ from django.utils.timezone import now
 # Create your models here.
 class Story(models.Model):
     title = models.CharField(max_length=200)
-    description = models.TextField()
-    created_at = models.DateTimeField(default=now, editable=False)
-    updated_at = models.DateTimeField(default=now, editable=False)
+    author = models.CharField(max_length=100, default="Unknown Author")
+    created_at = models.DateTimeField(auto_now_add=True)
+    content = models.TextField()
 
     def __str__(self):
         return self.title

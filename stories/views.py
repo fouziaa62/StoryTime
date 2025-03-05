@@ -9,4 +9,5 @@ def story_list(request):
 # this is a view function that returns a single story.  
 def story_detail(request, story_id):
     story = get_object_or_404(Story, id=story_id)
+    print(story.content)  # Debugging line
     return render(request, 'stories/story_detail.html', {'story': story})
