@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Story Share</title>
+</head>
+<body>
+    <h1>StoryShare - Read & Share Stories</h1>
+    {% for story in stories %}
+        <h2><a href="{% url 'story_detail'story.id%}>{{ story.title }}</a></h2>
+        <p><strong>By: {{ story.author }}</strong> | {{story.created_at}}</p>
+        <p>{{ story.content|truncatewords:50 }}</p>
+        <hr>
+    {% endfor %}
+    
+</body>
+</html>
