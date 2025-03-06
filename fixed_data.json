@@ -1,0 +1,521 @@
+﻿[
+{
+  "model": "contenttypes.contenttype",
+  "fields": {
+    "app_label": "admin",
+    "model": "logentry"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "fields": {
+    "app_label": "auth",
+    "model": "permission"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "fields": {
+    "app_label": "auth",
+    "model": "group"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "fields": {
+    "app_label": "auth",
+    "model": "user"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "fields": {
+    "app_label": "contenttypes",
+    "model": "contenttype"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "fields": {
+    "app_label": "sessions",
+    "model": "session"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "fields": {
+    "app_label": "stories",
+    "model": "story"
+  }
+},
+{
+  "model": "stories.story",
+  "pk": 1,
+  "fields": {
+    "title": "The Mysterious Door",
+    "author": "Unknown Author",
+    "created_at": "2025-03-05T12:45:11.319Z",
+    "content": "\"Lena had always been curious about the old wooden door at the end of the hallway. it had no handle, no keyhole-just a strange symbol carved into it. One evening, as she walked past, the door creaked open on its own. Her heart pounded. Taking a deep breath, she stepped inside... and vanished.\""
+  }
+},
+{
+  "model": "stories.story",
+  "pk": 2,
+  "fields": {
+    "title": "The Lost Letter",
+    "author": "Unknown Author",
+    "created_at": "2025-03-05T13:04:17.764Z",
+    "content": "On a quiet spring morning, Emily sat in her favorite corner of the cafÚ, sipping her coffee. As she stared out the window, she noticed a small envelope tucked between the pages of an old book on the table next to her. Curiosity got the best of her, and she reached for it. The letter was faded, the ink slightly smudged, but the address was clear: \"To my love, wherever you are.\"\r\n\r\nShe hesitated for a moment before tearing it open. Inside, there was a simple note: \"IÆve searched for you in every city, every street. But no matter where I go, I always find pieces of you in the most unexpected places. When the time is right, youÆll know how to find me.\"\r\n\r\nEmily felt a strange chill run down her spine, but also a flicker of hope. She looked around, wondering if the letter was meant for her. Maybe, just maybe, it was a sign.\r\n\r\nAs she left the cafÚ later that afternoon, Emily tucked the letter into her pocket, wondering how many more unexpected connections awaited her in the world."
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can add log entry",
+    "content_type": [
+      "admin",
+      "logentry"
+    ],
+    "codename": "add_logentry"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can change log entry",
+    "content_type": [
+      "admin",
+      "logentry"
+    ],
+    "codename": "change_logentry"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can delete log entry",
+    "content_type": [
+      "admin",
+      "logentry"
+    ],
+    "codename": "delete_logentry"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can view log entry",
+    "content_type": [
+      "admin",
+      "logentry"
+    ],
+    "codename": "view_logentry"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can add permission",
+    "content_type": [
+      "auth",
+      "permission"
+    ],
+    "codename": "add_permission"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can change permission",
+    "content_type": [
+      "auth",
+      "permission"
+    ],
+    "codename": "change_permission"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can delete permission",
+    "content_type": [
+      "auth",
+      "permission"
+    ],
+    "codename": "delete_permission"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can view permission",
+    "content_type": [
+      "auth",
+      "permission"
+    ],
+    "codename": "view_permission"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can add group",
+    "content_type": [
+      "auth",
+      "group"
+    ],
+    "codename": "add_group"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can change group",
+    "content_type": [
+      "auth",
+      "group"
+    ],
+    "codename": "change_group"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can delete group",
+    "content_type": [
+      "auth",
+      "group"
+    ],
+    "codename": "delete_group"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can view group",
+    "content_type": [
+      "auth",
+      "group"
+    ],
+    "codename": "view_group"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can add user",
+    "content_type": [
+      "auth",
+      "user"
+    ],
+    "codename": "add_user"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can change user",
+    "content_type": [
+      "auth",
+      "user"
+    ],
+    "codename": "change_user"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can delete user",
+    "content_type": [
+      "auth",
+      "user"
+    ],
+    "codename": "delete_user"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can view user",
+    "content_type": [
+      "auth",
+      "user"
+    ],
+    "codename": "view_user"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can add content type",
+    "content_type": [
+      "contenttypes",
+      "contenttype"
+    ],
+    "codename": "add_contenttype"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can change content type",
+    "content_type": [
+      "contenttypes",
+      "contenttype"
+    ],
+    "codename": "change_contenttype"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can delete content type",
+    "content_type": [
+      "contenttypes",
+      "contenttype"
+    ],
+    "codename": "delete_contenttype"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can view content type",
+    "content_type": [
+      "contenttypes",
+      "contenttype"
+    ],
+    "codename": "view_contenttype"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can add session",
+    "content_type": [
+      "sessions",
+      "session"
+    ],
+    "codename": "add_session"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can change session",
+    "content_type": [
+      "sessions",
+      "session"
+    ],
+    "codename": "change_session"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can delete session",
+    "content_type": [
+      "sessions",
+      "session"
+    ],
+    "codename": "delete_session"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can view session",
+    "content_type": [
+      "sessions",
+      "session"
+    ],
+    "codename": "view_session"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can add story",
+    "content_type": [
+      "stories",
+      "story"
+    ],
+    "codename": "add_story"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can change story",
+    "content_type": [
+      "stories",
+      "story"
+    ],
+    "codename": "change_story"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can delete story",
+    "content_type": [
+      "stories",
+      "story"
+    ],
+    "codename": "delete_story"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can view story",
+    "content_type": [
+      "stories",
+      "story"
+    ],
+    "codename": "view_story"
+  }
+},
+{
+  "model": "auth.user",
+  "fields": {
+    "password": "pbkdf2_sha256$870000$PRX0GgAswgvcHWzi1TdFWp$Y8dqwbqpiqHCFsq1+FHRNVZxURAaUaITfVrEpUvKuGs=",
+    "last_login": "2025-03-05T12:02:11.626Z",
+    "is_superuser": true,
+    "username": "Fouzia",
+    "first_name": "",
+    "last_name": "",
+    "email": "fouziaahmad62@gmail.com",
+    "is_staff": true,
+    "is_active": true,
+    "date_joined": "2025-03-05T12:00:42.972Z",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "auth.user",
+  "fields": {
+    "password": "pbkdf2_sha256$870000$PABiSbwiEu1u4OZHDZwP3n$U042DlI/wNgbbU7zAyoHPl7SIjq5JOM0EU/dONnpBNI=",
+    "last_login": "2025-03-06T13:04:58.701Z",
+    "is_superuser": false,
+    "username": "Shaheem@ahmad",
+    "first_name": "",
+    "last_name": "",
+    "email": "fouziaahmad62@gmail.com",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2025-03-06T11:53:22.915Z",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 1,
+  "fields": {
+    "action_time": "2025-03-05T12:45:11.323Z",
+    "user": [
+      "Fouzia"
+    ],
+    "content_type": [
+      "stories",
+      "story"
+    ],
+    "object_id": "1",
+    "object_repr": "The Mysterious Door",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 2,
+  "fields": {
+    "action_time": "2025-03-05T12:45:28.438Z",
+    "user": [
+      "Fouzia"
+    ],
+    "content_type": [
+      "stories",
+      "story"
+    ],
+    "object_id": "1",
+    "object_repr": "The Mysterious Door",
+    "action_flag": 2,
+    "change_message": "[]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 3,
+  "fields": {
+    "action_time": "2025-03-05T13:01:54.316Z",
+    "user": [
+      "Fouzia"
+    ],
+    "content_type": [
+      "stories",
+      "story"
+    ],
+    "object_id": "1",
+    "object_repr": "The Mysterious Door",
+    "action_flag": 2,
+    "change_message": "[]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 4,
+  "fields": {
+    "action_time": "2025-03-05T13:02:11.048Z",
+    "user": [
+      "Fouzia"
+    ],
+    "content_type": [
+      "stories",
+      "story"
+    ],
+    "object_id": "1",
+    "object_repr": "The Mysterious Door",
+    "action_flag": 2,
+    "change_message": "[]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 5,
+  "fields": {
+    "action_time": "2025-03-05T13:04:17.765Z",
+    "user": [
+      "Fouzia"
+    ],
+    "content_type": [
+      "stories",
+      "story"
+    ],
+    "object_id": "2",
+    "object_repr": "The Lost Letter",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 6,
+  "fields": {
+    "action_time": "2025-03-05T13:04:34.139Z",
+    "user": [
+      "Fouzia"
+    ],
+    "content_type": [
+      "stories",
+      "story"
+    ],
+    "object_id": "2",
+    "object_repr": "The Lost Letter",
+    "action_flag": 2,
+    "change_message": "[]"
+  }
+}
+]
