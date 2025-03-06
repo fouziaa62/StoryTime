@@ -25,7 +25,8 @@ SECRET_KEY = 'django-insecure-ex1$h2ocknbz#o*zrunnkxxktu@aru6t3kot=8ke*6m#kj-+4%
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['herokuapp.com',
+                  '127.0.0.1']
 
 
 # Application definition
@@ -122,3 +123,19 @@ STATIC_URL = 'static/'
 # https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+# Cloudinary settings
+import os
+
+CLOUDINARY_STORAGE = {
+    'CLOUD_NAME': os.getenv('fouzia'),
+    'API_KEY': os.getenv('456624717469535'),
+    'API_SECRET': os.getenv('qVJX2Z4DMmkq-o0WxtiOZzTk26M'),
+}
+
+DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
+
+LOGIN_REDIRECT_URL = 'story_list'
+LOGOUT_REDIRECT_URL = 'login'
+LOGOUT_REDIRECT_URL = 'logout'  # Redirect to login page after logout
+

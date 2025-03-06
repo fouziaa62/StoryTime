@@ -7,6 +7,14 @@
 </head>
 <body>
     <h1>StoryShare - Read & Share Stories</h1>
+    <a href="{% url 'signup' %}">Sign Up</a> | <a href="{% url 'logout' %}">Login</a>
+    <hr>
+    <h1>Welcome, {{ user.username }}!</h1>
+    <form action="{% url 'logout' %}" method="post">
+        {% csrf_token %}
+        <button type="submit">Logout</button>
+    </form>
+    <h2>Stories</h2>
     {% for story in stories %}
         <h2><a href="{% url 'story_detail' story.id%}">{{ story.title }}</a></h2>
         <p><strong>By: {{ story.author }}</strong> | {{story.created_at}}</p>
