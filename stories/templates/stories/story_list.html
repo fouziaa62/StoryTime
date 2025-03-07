@@ -9,11 +9,14 @@
     <h1>StoryShare - Read & Share Stories</h1>
     <a href="{% url 'signup' %}">Sign Up</a> | <a href="{% url 'login' %}">Login</a>
     <hr>
+    {% if user.is_authenticated %}
     <h1>Welcome, {{ user.username }}!</h1>
     <form action="{% url 'logout' %}" method="post">
         {% csrf_token %}
         <button type="submit">Log Out</button>
     </form>
+    <hr>
+    <a href="{% url 'add_story' %}">Add Story</a>
     <h2>Stories</h2>
     {% for story in stories %}
         <h2><a href="{% url 'story_detail' story.id%}">{{ story.title }}</a></h2>
@@ -21,6 +24,6 @@
         <p>{{ story.content|truncatewords:50 }}</p>
         <hr>
     {% endfor %}
-    
+    {% endif %}
 </body>
 </html>
