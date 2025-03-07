@@ -158,5 +158,6 @@ DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
 
 LOGIN_REDIRECT_URL = 'story_list'
 LOGOUT_REDIRECT_URL = 'login'
+LOGIN_URL = 'login'
 
 

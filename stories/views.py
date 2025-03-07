@@ -4,6 +4,7 @@ from .forms import UserSignupForm, StoryForm
 from django.contrib.auth.decorators import login_required
 
 # Create your views here.
+@login_required
 # This is a view function that returns a list of stories.
 def story_list(request):
     stories = Story.objects.all().order_by('-created_at')
