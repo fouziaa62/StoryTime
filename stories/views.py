@@ -1,6 +1,6 @@
 from django.shortcuts import render, get_object_or_404, redirect
 from .models import Story
-from .forms import UserSignupForm
+from .forms import UserSignupForm, StoryForm
 from django.contrib.auth.decorators import login_required
 
 # Create your views here.
@@ -30,3 +30,36 @@ def signup(request):
 def home(request):
     stories = Story.objects.all().order_by('-created_at')
     return render(request, "stories/story_list.html", {"stories": stories})
+
+@login_required
+def add_story(request):
+    if request.method == 'POST':
+        form = StoryForm(request.POST)
+        if form.is_valid():
+            story = form.save(commit=False)
+            story.author = request.user
+            story.save()
+            return redirect('story_list')
+    else:
+        form = StoryForm()
+    return render(request, 'stories/add_story.html', {'form': form})
+
+@login_required
+def edit_story(request, story_id):
+    story = get_object_or_404(Story, id=story_id, author=request.user)
+    if request.method == 'POST':
+        form = StoryForm(request.POST, instance=story)
+        if form.is_valid():
+            form.save()
+            return redirect('story_detail', story_id=story.id)
+    else:
+        form = StoryForm(instance=story)
+    return render(request, 'stories/edit_story.html', {'form': form})
+
+@login_required
+def delete_story(request, story_id):
+    story = get_object_or_404(Story, id=story_id, author=request.user)
+    if request.method == 'POST':
+        story.delete()
+        return redirect('story_list')
+    return render(request, 'stories/delete_story.html', {'story': story})

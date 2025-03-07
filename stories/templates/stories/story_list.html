@@ -7,12 +7,12 @@
 </head>
 <body>
     <h1>StoryShare - Read & Share Stories</h1>
-    <a href="{% url 'signup' %}">Sign Up</a> | <a href="{% url 'logout' %}">Login</a>
+    <a href="{% url 'signup' %}">Sign Up</a> | <a href="{% url 'login' %}">Login</a>
     <hr>
     <h1>Welcome, {{ user.username }}!</h1>
     <form action="{% url 'logout' %}" method="post">
         {% csrf_token %}
-        <button type="submit">Logout</button>
+        <button type="submit">Log Out</button>
     </form>
     <h2>Stories</h2>
     {% for story in stories %}
