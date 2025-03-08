@@ -1,0 +1,15 @@
+{% extends 'stories/base.html' %}
+
+{% block content %}
+<div class="container text-center">
+    <h2>{{ profile.user.username }}'s Profile</h2>
+    {% if profile.profile_picture %}
+        <img src="{{ profile.profile_picture.url }}" alt="Profile Picture" class="rounded-circle" width="150">
+    {% else %}
+        <p>No profile picture uploaded.</p>
+    {% endif %}
+    <p><strong>Bio:</strong> {{ profile.bio }}</p>
+    <a href="{% url 'edit_profile' %}" class="btn btn-primary">Edit Profile</a>
+    <a href="{% url 'delete_profile' %}" class="btn btn-danger">Delete Profile</a>
+</div>
+{% endblock %}

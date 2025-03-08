@@ -1,17 +1,13 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Delete Story</title>
-</head>
-<body>
-    <h1>Delete Story</h1>
-    <p>Are you sure you want to delete this story?</p>
-    <form method="post">
-        {% csrf_token %}
-        <button type="submit">Delete</button>
-    </form>
-    <a href="{% url 'story_detail' story.id %}">Cancel</a>
-</body>
-</html>
+{% extends "base.html" %}
+
+{% block title %}Delete Story{% endblock %}
+
+{% block content %}
+<h2 class="title">Delete Story</h2>
+<p>Are you sure you want to delete the story "{{ story.title }}"?</p>
+<form method="post">
+    {% csrf_token %}
+    <button type="submit" class="btn btn-custom">Delete</button>
+    <a href="{% url 'story_list' %}" class="link">Cancel</a>
+</form>
+{% endblock %}

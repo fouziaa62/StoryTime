@@ -6,11 +6,18 @@
     <title>Add Story</title>
 </head>
 <body>
-    <h1>Add Story</h1>
+    {% extends "base.html" %}
+
+    {% block title %}Add Story{% endblock %}
+
+    {% block content %}
+    <h2 class="title">Add Story</h2>
     <form method="post">
         {% csrf_token %}
         {{ form.as_p }}
-        <button type="submit">Add Story</button>
+        <button type="submit" class="btn btn-custom w-100">Add Story</button>
     </form>
+    <a href="{% url 'story_list' %}" class="link">Back to story list</a>
+    {% endblock %}
 </body>
 </html>

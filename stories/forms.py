@@ -2,6 +2,7 @@
 from django import forms
 from django.contrib.auth.models import User
 from .models import Story
+from .models import Profile
 
 class UserSignupForm(forms.ModelForm):
     password = forms.CharField(widget=forms.PasswordInput)
@@ -21,3 +22,8 @@ class StoryForm(forms.ModelForm):
     class Meta:
         model = Story
         fields = ['title', 'content']
+
+class ProfileForm(forms.ModelForm):
+    class Meta:
+        model = Profile
+        fields = ['profile_picture', 'bio']

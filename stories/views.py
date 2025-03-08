@@ -3,8 +3,10 @@ from .models import Story
 from .forms import UserSignupForm, StoryForm
 from django.contrib.auth.decorators import login_required
 from django.core.exceptions import PermissionDenied
+from .forms import ProfileForm
+from .models import Profile
 
-# Create your views here.
+
 @login_required
 # This is a view function that returns a list of stories.
 def story_list(request):
@@ -65,3 +67,29 @@ def delete_story(request, story_id):
         story.delete()
         return redirect('story_list')
     return render(request, 'stories/delete_story.html', {'story': story})
+@login_required
+def profile_view(request):
+    profile = get_object_or_404(Profile, user=request.user)
+    return render(request, 'stories/profile.html', {'profile': profile})
+
+@login_required
+def edit_profile(request):
+    profile = get_object_or_404(Profile, user=request.user)
+    if request.method == 'POST':
+        form = ProfileForm(request.POST, request.FILES, instance=profile)
+        if form.is_valid():
+            form.save()
+            return redirect('profile')
+    else:
+        form = ProfileForm(instance=profile)
+    return render(request, 'stories/edit_profile.html', {'form': form})
+
+@login_required
+def delete_profile(request):
+    profile = get_object_or_404(Profile, user=request.user)
+    if request.method == 'POST':
+        user = profile.user
+        profile.delete()
+        user.delete()  # Also delete the user account if the profile is gone
+        return redirect('login')
+    return render(request, 'stories/delete_profile.html')
