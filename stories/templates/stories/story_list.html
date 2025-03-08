@@ -6,17 +6,22 @@
     <title>Story Share</title>
 </head>
 <body>
-    <h1>StoryShare - Read & Share Stories</h1>
-    <a href="{% url 'signup' %}">Sign Up</a> | <a href="{% url 'login' %}">Login</a>
+    {% extends "base.html" %}
+
+    {% block title %}Story Share{% endblock %}
+
+    {% block content %}
+    <h1 class="title">StoryShare - Read & Share Stories</h1>
+    <a href="{% url 'signup' %}" class="link">Sign Up</a> | <a href="{% url 'login' %}" class="link">Login</a>
     <hr>
     {% if user.is_authenticated %}
     <h1>Welcome, {{ user.username }}!</h1>
     <form action="{% url 'logout' %}" method="post">
         {% csrf_token %}
-        <button type="submit">Log Out</button>
+        <button type="submit" class="btn btn-custom">Log Out</button>
     </form>
     <hr>
-    <a href="{% url 'add_story' %}">Add Story</a>
+    <a href="{% url 'add_story' %}" class="link">Add Story</a>
     <h2>Stories</h2>
     {% for story in stories %}
         <h2><a href="{% url 'story_detail' story.id%}">{{ story.title }}</a></h2>
@@ -25,5 +30,6 @@
         <hr>
     {% endfor %}
     {% endif %}
+    {% endblock %}
 </body>
 </html>

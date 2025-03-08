@@ -1,14 +1,9 @@
-{% extends "base.html" %}
-
-{% block title %}Login{% endblock %}
-
-{% block content %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>StoryTime | Login</title>
+    <title>{% block title %}StoryTime{% endblock %}</title>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
     <style>
         body {
@@ -19,15 +14,15 @@
             align-items: center;
             font-family: 'Arial', sans-serif;
         }
-        .login-container {
+        .container {
             background: #ffffff;
             padding: 40px;
             border-radius: 12px;
             box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
             width: 100%;
-            max-width: 400px;
+            max-width: 800px;
         }
-        .login-title {
+        .title {
             font-size: 28px;
             font-weight: 600;
             color: #b56576;
@@ -49,7 +44,7 @@
             border-radius: 8px;
             border: 1px solid #f4a4b4;
         }
-        .signup-link, .password-reset-link {
+        .link {
             text-align: center;
             display: block;
             margin-top: 10px;
@@ -57,34 +52,15 @@
             text-decoration: none;
             font-weight: 500;
         }
-        .signup-link:hover, .password-reset-link:hover {
+        .link:hover {
             text-decoration: underline;
         }
     </style>
+    {% block extra_styles %}{% endblock %}
 </head>
 <body>
-    <div class="login-container">
-        <h2 class="login-title">Welcome to StoryTime</h2>
-        <form method="post" action="{% url 'login' %}">
-            {% csrf_token %}
-            {% if form.errors %}
-                <div class="alert alert-danger">
-                    Invalid username or password. Please try again.
-                </div>
-            {% endif %}
-            <div class="mb-3">
-                <label for="username" class="form-label">Username</label>
-                <input type="text" name="username" class="form-control" placeholder="Enter your username" required>
-            </div>
-            <div class="mb-3">
-                <label for="password" class="form-label">Password</label>
-                <input type="password" name="password" class="form-control" placeholder="Enter your password" required>
-            </div>
-            <button type="submit" class="btn btn-custom w-100">Login</button>
-        </form>
-        <a href="{% url 'signup' %}" class="signup-link">Don’t have an account? Sign up</a>
-        <a href="{% url 'password_reset' %}" class="password-reset-link">Forgot your password?</a>
+    <div class="container">
+        {% block content %}{% endblock %}
     </div>
 </body>
 </html>
-{% endblock %}

@@ -1,23 +1,19 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{{ story.title }}</title>
-</head>
-<body>
-    <h1>{{ story.title }}</h1>
-    <p><strong>By: {{ story.author }}</strong> | {{ story.created_at }}</p>
-    <p>{{ story.content }}</p>
-    {% if user == story.author %}
-    <a href="{% url 'edit_story' story.id %}">Edit</a>
-    <form action="{% url 'delete_story' story.id %}" method="post" style="display:inline;">
-        {% csrf_token %}
-        <button type="submit" onclick="return confirm('Are you sure?');">Delete</button>
-    </form>
+{% extends "base.html" %}
+
+{% block title %}{{ story.title }}{% endblock %}
+
+{% block content %}
+<h1 class="title">{{ story.title }}</h1>
+<p><strong>By: {{ story.author }}</strong> | {{ story.created_at }}</p>
+<p>{{ story.content }}</p>
+{% if user == story.author %}
+<a href="{% url 'edit_story' story.id %}" class="link">Edit</a>
+<form action="{% url 'delete_story' story.id %}" method="post" style="display:inline;">
+    {% csrf_token %}
+    <button type="submit" class="btn btn-custom" onclick="return confirm('Are you sure?');">Delete</button>
+</form>
 {% endif %}
-    <br>
-    <br>
-    <a href="{% url 'story_list' %}">Back to story list</a>
-</body>
-</html>
+<br>
+<br>
+<a href="{% url 'story_list' %}" class="link">Back to story list</a>
+{% endblock %}
