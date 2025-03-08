@@ -3,18 +3,81 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login</title>
+    <title>StoryTime | Login</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background: linear-gradient(135deg, #f3f4f6, #e3eaf1);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-family: 'Arial', sans-serif;
+        }
+        .login-container {
+            background: #ffffff;
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+            width: 100%;
+            max-width: 400px;
+        }
+        .login-title {
+            font-size: 28px;
+            font-weight: 600;
+            color: #333;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .btn-custom {
+            background: #5c67f2;
+            color: #fff;
+            padding: 10px 20px;
+            font-weight: 500;
+            border-radius: 8px;
+            transition: background 0.3s ease;
+        }
+        .btn-custom:hover {
+            background: #4b50c7;
+        }
+        .form-control {
+            border-radius: 8px;
+        }
+        .signup-link, .password-reset-link {
+            text-align: center;
+            display: block;
+            margin-top: 10px;
+            color: #5c67f2;
+            text-decoration: none;
+            font-weight: 500;
+        }
+        .signup-link:hover, .password-reset-link:hover {
+            text-decoration: underline;
+        }
+    </style>
 </head>
 <body>
-    <h1>Login</h1>
-    
-    <form method="post">
-        {% csrf_token %}
-        {{ form.as_p }}
-        <button type="submit">Login</button>
-    </form>
-    
-    <p>Don't have an account? <a href="{% url 'signup' %}">Sign up</a></p>
-    <p><a href="{% url 'password_reset' %}">Forgot your password?</a></p>
+    <div class="login-container">
+        <h2 class="login-title">Welcome to StoryTime</h2>
+        <form method="post" action="{% url 'login' %}">
+            {% csrf_token %}
+            {% if form.errors %}
+                <div class="alert alert-danger">
+                    Invalid username or password. Please try again.
+                </div>
+            {% endif %}
+            <div class="mb-3">
+                <label for="username" class="form-label">Username</label>
+                <input type="text" name="username" class="form-control" placeholder="Enter your username" required>
+            </div>
+            <div class="mb-3">
+                <label for="password" class="form-label">Password</label>
+                <input type="password" name="password" class="form-control" placeholder="Enter your password" required>
+            </div>
+            <button type="submit" class="btn btn-custom w-100">Login</button>
+        </form>
+        <a href="{% url 'signup' %}" class="signup-link">Don’t have an account? Sign up</a>
+        <a href="{% url 'password_reset' %}" class="password-reset-link">Forgot your password?</a>
+    </div>
 </body>
 </html>
