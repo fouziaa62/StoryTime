@@ -2,6 +2,8 @@ from django.shortcuts import render, get_object_or_404, redirect
 from .models import Story
 from .forms import UserSignupForm, StoryForm
 from django.contrib.auth.decorators import login_required
+from django.contrib import messages
+from django.contrib.auth import authenticate, login
 from django.core.exceptions import PermissionDenied
 from .forms import ProfileForm
 from .models import Profile
@@ -93,3 +95,18 @@ def delete_profile(request):
         user.delete()  # Also delete the user account if the profile is gone
         return redirect('login')
     return render(request, 'stories/delete_profile.html')
+
+def custom_login(request):
+    if request.method == 'POST':
+        username = request.POST['username']
+        password = request.POST['password']
+        user = authenticate(request, username=username, password=password)
+        if user is not None:
+            # Ensure user has a profile
+            Profile.objects.get_or_create(user=user)
+            
+            login(request, user)
+            return redirect('home')
+        else:
+            messages.error(request, 'Invalid username or password')
+    return render(request, 'login.html')
