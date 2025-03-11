@@ -11,5 +11,7 @@
     <p><strong>Bio:</strong> {{ profile.bio }}</p>
     <a href="{% url 'edit_profile' %}" class="btn btn-primary">Edit Profile</a>
     <a href="{% url 'delete_profile' %}" class="btn btn-danger">Delete Profile</a>
+    <br><br>
+    <a href="{% url 'story_list' %}" class="btn btn-custom">Back to Story List</a>
 </div>
 {% endblock %}

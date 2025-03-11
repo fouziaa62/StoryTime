@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Story Share</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
 </head>
 <body>
     {% extends "base.html" %}
@@ -11,32 +12,56 @@
     {% block title %}Story Share{% endblock %}
     
     {% block content %}
-    <h1 class="title">StoryShare - Read & Share Stories</h1>
-    <a href="{% url 'signup' %}" class="link">Sign Up</a> | <a href="{% url 'login' %}" class="link">Login</a>
-    <hr>
-    {% if user.is_authenticated %}
-    <h1>Welcome, {{ user.username }}!</h1>
-    <form action="{% url 'logout' %}" method="post">
-        {% csrf_token %}
-        <button type="submit" class="btn btn-custom">Log Out</button>
-    </form>
-    <hr>
-    <a href="{% url 'add_story' %}" class="link">Add Story</a>
-    <a href="{% url 'profile' %}" class="link">View Profile</a>
-    <a href="{% url 'edit_profile' %}" class="link">Edit Profile</a>
-    <form action="{% url 'delete_profile' %}" method="post" style="display:inline;">
-        {% csrf_token %}
-        <button type="submit" class="btn btn-custom" onclick="return confirm('Are you sure you want to delete your profile?');">Delete Profile</button>
-    </form>
-    <hr>
-    <h2>Stories</h2>
-    {% for story in stories %}
-        <h2><a href="{% url 'story_detail' story.id%}">{{ story.title }}</a></h2>
-        <p><strong>By: {{ story.author }}</strong> | {{story.created_at}}</p>
-        <p>{{ story.content|truncatewords:50 }}</p>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light w-100">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="{% url 'story_list' %}">StoryTime</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    {% if user.is_authenticated %}
+                        <li class="nav-item">
+                            <a class="nav-link" href="{% url 'story_list' %}">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{% url 'profile' %}">Profile</a>
+                        </li>
+                        <li class="nav-item">
+                            <form action="{% url 'logout' %}" method="post" class="d-inline">
+                                {% csrf_token %}
+                                <button type="submit" class="btn btn-link nav-link" style="display: inline; padding: 0;">Logout</button>
+                            </form>
+                        </li>
+                    {% else %}
+                        <li class="nav-item">
+                            <a class="nav-link" href="{% url 'login' %}">Login</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{% url 'signup' %}">Sign Up</a>
+                        </li>
+                    {% endif %}
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <div class="container">
+        <h1 class="title">StoryShare - Read & Share Stories</h1>
         <hr>
-    {% endfor %}
-    {% endif %}
+        {% if user.is_authenticated %}
+        <h1>Welcome, {{ user.username }}!</h1>
+        <a href="{% url 'add_story' %}" class="link">Add Story</a>
+        <hr>
+        <h2>Stories</h2>
+        {% for story in stories %}
+            <h2><a href="{% url 'story_detail' story.id%}">{{ story.title }}</a></h2>
+            <p><strong>By: {{ story.author }}</strong> | {{story.created_at}}</p>
+            <p>{{ story.content|truncatewords:50 }}</p>
+            <hr>
+        {% endfor %}
+        {% endif %}
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
     {% endblock %}
 </body>
 </html>
