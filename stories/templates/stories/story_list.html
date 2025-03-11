@@ -1,67 +1,63 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Story Share</title>
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
-</head>
-<body>
-    {% extends "base.html" %}
+{% extends "base.html" %}
 
-    {% block title %}Story Share{% endblock %}
-    
-    {% block content %}
-    <nav class="navbar navbar-expand-lg navbar-light bg-light w-100">
-        <div class="container-fluid">
-            <a class="navbar-brand" href="{% url 'story_list' %}">StoryTime</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ms-auto">
-                    {% if user.is_authenticated %}
-                        <li class="nav-item">
-                            <a class="nav-link" href="{% url 'story_list' %}">Home</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="{% url 'profile' %}">Profile</a>
-                        </li>
-                        <li class="nav-item">
-                            <form action="{% url 'logout' %}" method="post" class="d-inline">
-                                {% csrf_token %}
-                                <button type="submit" class="btn btn-link nav-link" style="display: inline; padding: 0;">Logout</button>
-                            </form>
-                        </li>
-                    {% else %}
-                        <li class="nav-item">
-                            <a class="nav-link" href="{% url 'login' %}">Login</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="{% url 'signup' %}">Sign Up</a>
-                        </li>
-                    {% endif %}
-                </ul>
-            </div>
-        </div>
-    </nav>
-    <div class="container">
-        <h1 class="title">StoryShare - Read & Share Stories</h1>
-        <hr>
-        {% if user.is_authenticated %}
-        <h1>Welcome, {{ user.username }}!</h1>
-        <a href="{% url 'add_story' %}" class="link">Add Story</a>
-        <hr>
-        <h2>Stories</h2>
-        {% for story in stories %}
-            <h2><a href="{% url 'story_detail' story.id%}">{{ story.title }}</a></h2>
-            <p><strong>By: {{ story.author }}</strong> | {{story.created_at}}</p>
-            <p>{{ story.content|truncatewords:50 }}</p>
-            <hr>
-        {% endfor %}
-        {% endif %}
+{% block title %}Story Share{% endblock %}
+
+{% block content %}
+<div class="container my-5">
+    <div class="text-center">
+        <h1 class="display-4 text-primary fw-bold">StoryShare</h1>
+        <p class="lead text-muted">Read & Share Your Stories with the World</p>
     </div>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
-    {% endblock %}
-</body>
-</html>
+    <hr class="my-4">
+
+    {% if user.is_authenticated %}
+        <div class="text-center mb-4">
+            <h2 class="fw-normal">Welcome, <span class="text-info">{{ user.username }}</span>!</h2>
+        </div>
+        
+        <div class="d-flex justify-content-center gap-3 mb-5">
+            <a href="{% url 'add_story' %}" class="btn btn-success btn-lg shadow-sm">➕ Add Story</a>
+            <a href="{% url 'profile' %}" class="btn btn-outline-primary btn-lg shadow-sm">👤 View Profile</a>
+            <form action="{% url 'delete_profile' %}" method="post" style="display:inline;">
+                {% csrf_token %}
+                <button type="submit" class="btn btn-danger btn-lg shadow-sm" onclick="return confirm('Are you sure you want to delete your profile?')">
+                    🗑️ Delete Profile
+                </button>
+            </form>
+            <form action="{% url 'logout' %}" method="post" style="display:inline;">
+                {% csrf_token %}
+                <button type="submit" class="btn btn-warning btn-lg shadow-sm">🚪 Log Out</button>
+            </form>
+        </div>
+
+        <h2 class="text-center text-secondary">📚 Stories</h2>
+        <div class="row justify-content-center">
+            {% for story in stories %}
+                <div class="col-md-8 mb-4">
+                    <div class="card shadow-sm border-0 rounded">
+                        <div class="card-body">
+                            <h3 class="card-title">
+                                <a href="{% url 'story_detail' story.id %}" class="text-decoration-none text-dark fw-bold">{{ story.title }}</a>
+                            </h3>
+                            <p class="text-muted mb-1">
+                                <strong>By:</strong> {{ story.author }} | <small>{{ story.created_at|date:"M d, Y" }}</small>
+                            </p>
+                            <p class="card-text">{{ story.content|truncatewords:50 }}</p>
+                            <a href="{% url 'story_detail' story.id %}" class="btn btn-outline-info btn-sm">Read More →</a>
+                        </div>
+                    </div>
+                </div>
+            {% empty %}
+                <div class="text-center">
+                    <p class="text-muted">No stories yet. Be the first to add one!</p>
+                </div>
+            {% endfor %}
+        </div>
+    {% else %}
+        <div class="text-center mt-5">
+            <p class="text-danger fs-4">You are not logged in.</p>
+            <a href="{% url 'login' %}" class="btn btn-primary btn-lg">🔑 Log in here</a>
+        </div>
+    {% endif %}
+</div>
+{% endblock %}
