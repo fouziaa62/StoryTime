@@ -31,3 +31,15 @@ class Comment(models.Model):
 
     def __str__(self):
         return f"Comment by {self.author} on {self.story}"
+
+# model for likes
+class Like(models.Model):
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    story = models.ForeignKey(Story, on_delete=models.CASCADE)
+    created_at = models.DateTimeField(auto_now_add=True)
+
+    class Meta:
+        unique_together = ['user', 'story']
+
+    def __str__(self):
+        return f"{self.user.username} likes {self.story.title}"

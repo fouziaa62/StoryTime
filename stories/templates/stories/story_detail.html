@@ -14,6 +14,20 @@
 </form>
 {% endif %}
 <br>
+<br>
+<form method="POST" action="{% url 'toggle_like' story.id %}">
+    {% csrf_token %}
+    <button type="submit" class="btn btn-primary">
+      {% if user in story.likes.all %}
+        Unlike
+      {% else %}
+        Like
+      {% endif %}
+    </button>
+  </form>
+
+  <p>{{ story.likes.count }} Likes</p>
+  <br>
 <h2>Comments</h2>
 {% for comment in comments %}
     <div class="comment">

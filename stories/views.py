@@ -1,5 +1,5 @@
 from django.shortcuts import render, get_object_or_404, redirect
-from .models import Story, Comment
+from .models import Story, Comment, Like
 from .forms import CommentForm
 from .forms import UserSignupForm, StoryForm
 from django.contrib.auth.decorators import login_required
@@ -8,6 +8,7 @@ from django.contrib.auth import authenticate, login
 from django.core.exceptions import PermissionDenied
 from .forms import ProfileForm
 from .models import Profile
+from django import forms
 
 
 @login_required
@@ -129,3 +130,18 @@ def custom_login(request):
         else:
             messages.error(request, 'Invalid username or password')
     return render(request, 'login.html')
+
+class LikeForm(forms.Form):
+    pass  
+
+@login_required
+def toggle_like(request, story_id):
+    story = get_object_or_404(Story, id=story_id)
+    user = request.user
+    like, created = Like.objects.get_or_create(user=user, story=story)
+
+    if not created:
+        # If the like already exists, we delete it (unlike)
+        like.delete()
+
+    return redirect('story_detail', story_id=story.id)
