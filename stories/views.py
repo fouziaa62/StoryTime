@@ -1,5 +1,6 @@
 from django.shortcuts import render, get_object_or_404, redirect
-from .models import Story
+from .models import Story, Comment
+from .forms import CommentForm
 from .forms import UserSignupForm, StoryForm
 from django.contrib.auth.decorators import login_required
 from django.contrib import messages
@@ -14,11 +15,7 @@ from .models import Profile
 def story_list(request):
     stories = Story.objects.all().order_by('-created_at')
     return render(request, 'stories/story_list.html', {'stories': stories})
-# this is a view function that returns a single story.  
-def story_detail(request, story_id):
-    story = get_object_or_404(Story, id=story_id)
-    print(story.content)  # Debugging line
-    return render(request, 'stories/story_detail.html', {'story': story})
+  
 # this is a view function that returns a signup form.
 def signup(request):
     if request.method == 'POST':
@@ -36,6 +33,28 @@ def signup(request):
 def home(request):
     stories = Story.objects.all().order_by('-created_at')
     return render(request, "stories/story_list.html", {"stories": stories})
+
+# This is a view function that returns a single story.
+def story_detail(request, story_id):
+    story = get_object_or_404(Story, id=story_id)
+    comments = story.comments.all()
+
+    if request.method == 'POST':
+        form = CommentForm(request.POST)
+        if form.is_valid():
+            comment = form.save(commit=False)
+            comment.story = story
+            comment.author = request.user
+            comment.save()
+            return redirect('story_detail', story_id=story.id)
+    else:
+        form = CommentForm()
+
+    return render(request, 'stories/story_detail.html', {
+        'story': story,
+        'comments': comments,
+        'form': form
+    })
 
 @login_required
 def add_story(request):
