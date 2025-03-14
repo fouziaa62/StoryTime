@@ -6,63 +6,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{% block title %}StoryTime{% endblock %}</title>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
+    <link href="{% static 'css/style.css' %}" rel="stylesheet">
     <style>
         body {
-            background: linear-gradient(135deg, #fde2e4, #c2caf3);
-            min-height: 100vh;
-            display: flex;
+            background: linear-gradient(135deg, #d4f8e8, #b8e4c9);
+            min-height: 100vh;>
+            display: flex;ck %}
             justify-content: center;
-            align-items: center;
+            align-items: center;/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
             font-family: 'Arial', sans-serif;
         }
-        .container {
-            background: #fbbaf6;
-            padding: 40px;
-            border-radius: 12px;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
-            width: 100%;
-            max-width: 800px;
-        }
-        .title {
-            font-size: 28px;
-            font-weight: 600;
-            color: #6d3169;
-            text-align: center;
-            margin-bottom: 20px;
-        }
-        .btn-custom {
-            background: #25062a;
-            color: #ffffff;
-            padding: 10px 20px;
-            font-weight: 500;
-            border-radius: 8px;
-            transition: background 0.3s ease;
-        }
-        .btn-custom:hover {
-            background: #f36489;
-        }
-        .form-control {
-            border-radius: 8px;
-            border: 1px solid #f4a4b4;
-        }
-        .link {
-            text-align: center;
-            display: block;
-            margin-top: 10px;
-            color: #b56576;
-            text-decoration: none;
-            font-weight: 500;
-        }
-        .link:hover {
-            text-decoration: underline;
-        }
-    </style>
-    {% block extra_styles %}{% endblock %}
-</head>
-<body>
-    <div class="container">
-        {% block content %}{% endblock %}
-    </div>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
-</body>
-</html>
+        .container {            background: #e0f7df;            padding: 40px;            border-radius: 12px;            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);            width: 100%;            max-width: 800px;        }        .title {            font-size: 28px;            font-weight: 600;            color: #4a7c59;            text-align: center;            margin-bottom: 20px;        }        .btn-custom {            background: #6abf69;            color: #ffffff;            padding: 10px 20px;            font-weight: 500;            border-radius: 8px;            transition: background 0.3s ease;        }        .btn-custom:hover {            background: #4a7c59;        }        .form-control {            border-radius: 8px;            border: 1px solid #a3d9a5;        }        .link {            text-align: center;            display: block;            margin-top: 10px;            color: #4a7c59;            text-decoration: none;            font-weight: 500;        }        .link:hover {            text-decoration: underline;        }    </style>    {% block extra_styles %}{% endblock %}</head><body>    <div class="container">        {% block content %}{% endblock %}    </div>    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script></body></html>
