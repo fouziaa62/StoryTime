@@ -15,16 +15,17 @@
 {% endif %}
 <br>
 <br>
+<p>{{ likes_count }} Likes</p>
 <form method="POST" action="{% url 'toggle_like' story.id %}">
     {% csrf_token %}
-    <button type="submit" class="btn btn-primary">
-      {% if user in story.likes.all %}
-        Unlike
-      {% else %}
-        Like
-      {% endif %}
+    <button type="submit" class="btn">
+        {% if user_has_liked %}
+            ❤️ Unlike
+        {% else %}
+            🤍 Like
+        {% endif %}
     </button>
-  </form>
+</form>
 
   <p>{{ story.likes.count }} Likes</p>
   <br>

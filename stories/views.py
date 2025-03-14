@@ -36,10 +36,17 @@ def home(request):
     return render(request, "stories/story_list.html", {"stories": stories})
 
 # This is a view function that returns a single story.
+
 def story_detail(request, story_id):
+    # Get the story or return 404 if not found
     story = get_object_or_404(Story, id=story_id)
     comments = story.comments.all()
 
+    # Get the like count and check if the user has liked the story
+    likes_count = Like.objects.filter(story=story).count()
+    user_has_liked = Like.objects.filter(story=story, user=request.user).exists()
+
+    # Handle POST request for submitting a new comment
     if request.method == 'POST':
         form = CommentForm(request.POST)
         if form.is_valid():
@@ -47,14 +54,17 @@ def story_detail(request, story_id):
             comment.story = story
             comment.author = request.user
             comment.save()
-            return redirect('story_detail', story_id=story.id)
+            return redirect('story_detail', story_id=story.id)  # Redirect to the same story page after saving comment
     else:
-        form = CommentForm()
+        form = CommentForm()  # Instantiate an empty form for GET request
 
+    # Render the template with the story, comments, form, likes count, and user like status
     return render(request, 'stories/story_detail.html', {
         'story': story,
         'comments': comments,
-        'form': form
+        'form': form,
+        'likes_count': likes_count,
+        'user_has_liked': user_has_liked
     })
 
 @login_required
