@@ -10,6 +10,9 @@ from .forms import ProfileForm
 from .models import Profile
 from django import forms
 
+# This is a view function that returns the landing page.
+def landing_page(request):
+    return render(request, 'landing.html')
 
 @login_required
 # This is a view function that returns a list of stories.

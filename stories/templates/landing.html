@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <div class="landing-container">
+    <h1>Welcome to StoryShare</h1>
+    <p>Discover and share amazing stories.</p>
+
+    <div class="cta-buttons">
+      <a href="{% url 'login' %}" class="btn btn-primary">Log In</a>
+      <a href="{% url 'signup' %}" class="btn btn-secondary">Sign Up</a>
+    </div>
+  </div>
+{% endblock %}
