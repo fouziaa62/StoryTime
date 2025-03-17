@@ -1,13 +1,20 @@
 from django.db import models
+from django.core.exceptions import ValidationError
 from django.contrib.auth.models import User
 from cloudinary.models import CloudinaryField
+
+# custom validator to limit the number of words in a story
+def validate_story_length(value):
+    max_words = 500  
+    if len(value.split()) > max_words:
+        raise ValidationError(f'Maximum {max_words} words allowed.')
 
 # model for stories
 class Story(models.Model):
     title = models.CharField(max_length=200)
     author = models.ForeignKey(User, on_delete=models.CASCADE)
     created_at = models.DateTimeField(auto_now_add=True)
-    content = models.TextField()
+    content = models.TextField(validators=[validate_story_length])
 
     def __str__(self):
         return self.title

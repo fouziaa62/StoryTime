@@ -125,3 +125,55 @@ table th {
 table tr:hover {
     background-color: var(--pastel-light-green);
 }
+
+/* static/css/style.css */
+.form-container {
+    max-width: 600px;
+    margin: auto;
+    padding: 20px;
+    background: rgba(255, 255, 255, 0.8);
+    border-radius: 10px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+textarea, input {
+    width: 100%;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    background: rgba(255, 255, 255, 0.6);
+}
+
+.btn-custom {
+    background: #6BCB77; /* Pastel green */
+    color: white;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    display: block;
+    text-align: center;
+}
+
+.btn-custom:hover {
+    background: #57a964;
+}
+
+.link {
+    display: block;
+    margin-top: 10px;
+    text-align: center;
+    color: #2c6e49;
+    font-weight: bold;
+}
