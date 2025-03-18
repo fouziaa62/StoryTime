@@ -5,11 +5,8 @@ body {
     font-family: 'Arial', sans-serif;
     min-height: 100vh;
     display: flex;
-    flex-direction: column;
-    align-items: center;
     justify-content: center;
-    margin: 0;
-    padding: 20px;
+    align-items: center;
 }
 
 /* Main Container */
@@ -44,13 +41,12 @@ body {
 /* Buttons */
 .btn-custom {
     background: #9b59b6; /* Purple */
-    color: #ffffff; /* White text */
+    color: #ffffff;
     padding: 10px 20px;
     font-weight: 500;
     border-radius: 8px;
-    border: none;
-    cursor: pointer;
     transition: background 0.3s ease, box-shadow 0.3s ease;
+    border: none;
 }
 
 .btn-custom:hover {
@@ -65,14 +61,6 @@ body {
     background: #222;
     color: #e0b3ff;
     padding: 10px;
-    width: 100%;
-    font-size: 16px;
-}
-
-.form-control:focus {
-    outline: none;
-    border-color: #ff66b2; /* Neon pink */
-    box-shadow: 0 0 8px #ff66b2;
 }
 
 /* Links */
@@ -83,7 +71,6 @@ body {
     color: #ff66b2; /* Neon pink */
     text-decoration: none;
     font-weight: 500;
-    transition: color 0.3s ease;
 }
 
 .link:hover, .signup-link:hover, .password-reset-link:hover {
@@ -91,7 +78,7 @@ body {
     color: #ff3399; /* Brighter pink */
 }
 
-/* Navbar (if added later) */
+/* Navbar (if you add one later) */
 .navbar {
     background: #1e1e1e;
     padding: 10px 20px;
@@ -120,9 +107,5 @@ body {
 
     .title {
         font-size: 24px;
-    }
-
-    .btn-custom {
-        width: 100%; /* Full width buttons on small screens */
     }
 }

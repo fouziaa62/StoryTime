@@ -1,13 +1,15 @@
 {% extends 'base.html' %}
+{% load static %}
 
 {% block content %}
-  <div class="landing-container">
-    <h1>Welcome to StoryShare</h1>
-    <p>Discover and share amazing stories.</p>
-
-    <div class="cta-buttons">
-      <a href="{% url 'login' %}" class="btn btn-primary">Log In</a>
-      <a href="{% url 'signup' %}" class="btn btn-secondary">Sign Up</a>
+  <div class="container-fluid d-flex flex-column justify-content-center align-items-center min-vh-100">
+    <div class="text-center">
+      <h1 class="display-4 text-primary fw-bold">Welcome to StoryTime</h1>
+      <p class="lead text-muted">Share your stories with the world</p>
+      <div class="mt-4">
+        <a href="{% url 'signup' %}" class="btn btn-success btn-lg mx-2">Sign Up</a>
+        <a href="{% url 'login' %}" class="btn btn-primary btn-lg mx-2">Login</a>
+      </div>
     </div>
   </div>
 {% endblock %}
