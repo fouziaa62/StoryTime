@@ -15,12 +15,25 @@
     {% block extra_styles %}{% endblock %}
 </head>
 <body>
+    <div class="notification-container">
+        {% if messages %}
+            {% for message in messages %}
+                <div class="notification alert-{{ message.tags }}">
+                    {{ message }}
+                    <span class="close-btn" onclick="this.parentElement.style.display='none';">&times;</span>
+                </div>
+            {% endfor %}
+        {% endif %}
+    </div>
+    
 
     <!-- Main Content -->
     <div class="container-fluid">
         {% block content %}
         {% endblock %}
     </div>
+  
+
 
     <!-- Bootstrap JS -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>

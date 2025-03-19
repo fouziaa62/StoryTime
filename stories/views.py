@@ -10,6 +10,9 @@ from .forms import ProfileForm
 from .models import Profile
 from django import forms
 from django.contrib.auth import get_user_model
+from django.contrib import messages
+from django.contrib.auth.signals import user_logged_in, user_logged_out
+from django.dispatch import receiver
 
 # This is a view function that returns the landing page.
 def landing_page(request):
@@ -79,6 +82,7 @@ def add_story(request):
             story = form.save(commit=False)
             story.author = request.user
             story.save()
+            messages.success(request, "Story created successfully!")
             return redirect('story_list')
     else:
         form = StoryForm()
@@ -91,6 +95,7 @@ def edit_story(request, story_id):
         form = StoryForm(request.POST, instance=story)
         if form.is_valid():
             form.save()
+            messages.success(request, "Story updated successfully!")
             return redirect('story_detail', story_id=story.id)
     else:
         form = StoryForm(instance=story)
@@ -101,6 +106,7 @@ def delete_story(request, story_id):
     story = get_object_or_404(Story, id=story_id, author=request.user)
     if request.method == 'POST':
         story.delete()
+        messages.error(request, "Story deleted successfully!")
         return redirect('story_list')
     return render(request, 'stories/delete_story.html', {'story': story})
 @login_required
@@ -115,6 +121,7 @@ def edit_profile(request):
         form = ProfileForm(request.POST, request.FILES, instance=profile)
         if form.is_valid():
             form.save()
+            messages.success(request, "Profile updated successfully!")
             return redirect('profile')
     else:
         form = ProfileForm(instance=profile)
@@ -125,6 +132,7 @@ def delete_profile(request):
     if request.method == 'POST':
         user = request.user
         user.delete()
+        messages.error(request, "Profile deleted successfully!")
         return redirect('landing_page')  # Replace 'landing_page' with the actual name of your landing page URL pattern
     return render(request, 'stories/delete_profile.html')
 
@@ -157,3 +165,11 @@ def toggle_like(request, story_id):
         like.delete()
 
     return redirect('story_detail', story_id=story.id)
+
+@receiver(user_logged_in)
+def login_success(sender, request, user, **kwargs):
+    messages.success(request, f"Welcome back, {user.username}!")
+
+@receiver(user_logged_out)
+def logout_success(sender, request, user, **kwargs):
+    messages.info(request, "You have been logged out successfully.")

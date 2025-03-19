@@ -166,6 +166,16 @@ CLOUDINARY_STORAGE = {
     'API_KEY': os.getenv('456624717469535'),
     'API_SECRET': os.getenv('qVJX2Z4DMmkq-o0WxtiOZzTk26M'),
 }
+# notifcation settings
+from django.contrib.messages import constants as messages
+
+MESSAGE_TAGS = {
+    messages.DEBUG: 'debug',
+    messages.INFO: 'info',
+    messages.SUCCESS: 'success',
+    messages.WARNING: 'warning',
+    messages.ERROR: 'danger',
+}
 
 DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
 ACCOUNT_EMAIL_REQUIRED = True
