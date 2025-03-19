@@ -19,4 +19,5 @@ urlpatterns = [
     path('profile/edit/', edit_profile, name='edit_profile'),
     path('profile/delete/', delete_profile, name='delete_profile'),
     path('story/<int:story_id>/like/', views.toggle_like, name='toggle_like'),
+    path('delete_profile/', views.delete_profile, name='delete_profile'),
 ]

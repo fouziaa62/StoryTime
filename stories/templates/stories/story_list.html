@@ -17,16 +17,10 @@
         
         <div class="d-flex justify-content-center gap-3 mb-5">
             <a href="{% url 'add_story' %}" class="btn btn-success btn-lg shadow-sm">➕ Add Story</a>
-            <a href="{% url 'profile' %}" class="btn btn-outline-primary btn-lg shadow-sm">👤 View Profile</a>
-            <form action="{% url 'delete_profile' %}" method="post" style="display:inline;">
-                {% csrf_token %}
-                <button type="submit" class="btn btn-danger btn-lg shadow-sm" onclick="return confirm('Are you sure you want to delete your profile?')">
-                    🗑️ Delete Profile
-                </button>
-            </form>
+            <a href="{% url 'profile' %}" class="btn btn-outline-primary btn-lg shadow-sm">👤</a>
             <form action="{% url 'logout' %}" method="post" style="display:inline;">
                 {% csrf_token %}
-                <button type="submit" class="btn btn-warning btn-lg shadow-sm">🚪 Log Out</button>
+                <button type="submit" class="btn btn-warning btn-lg shadow-sm">Log Out</button>
             </form>
         </div>
 

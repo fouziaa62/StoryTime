@@ -1,5 +1,7 @@
 {% extends 'base.html' %}
 
+{% block title %}Profile{% endblock %}
+
 {% block content %}
 <div class="container text-center">
     <h2>{{ profile.user.username }}'s Profile</h2>
@@ -10,7 +12,12 @@
     {% endif %}
     <p><strong>Bio:</strong> {{ profile.bio }}</p>
     <a href="{% url 'edit_profile' %}" class="btn btn-primary">Edit Profile</a>
-    <a href="{% url 'delete_profile' %}" class="btn btn-danger">Delete Profile</a>
+    <form action="{% url 'delete_profile' %}" method="post" style="display:inline;">
+        {% csrf_token %}
+        <button type="submit" class="btn btn-danger btn-lg shadow-sm" onclick="return confirm('Are you sure you want to delete your profile?')">
+            🗑️ Delete Profile
+        </button>
+    </form>
     <br><br>
     <a href="{% url 'story_list' %}" class="btn btn-custom">Back to Story List</a>
 </div>

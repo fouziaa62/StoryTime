@@ -9,6 +9,7 @@ from django.core.exceptions import PermissionDenied
 from .forms import ProfileForm
 from .models import Profile
 from django import forms
+from django.contrib.auth import get_user_model
 
 # This is a view function that returns the landing page.
 def landing_page(request):
@@ -121,12 +122,10 @@ def edit_profile(request):
 
 @login_required
 def delete_profile(request):
-    profile = get_object_or_404(Profile, user=request.user)
     if request.method == 'POST':
-        user = profile.user
-        profile.delete()
-        user.delete()  # Also delete the user account if the profile is gone
-        return redirect('login')
+        user = request.user
+        user.delete()
+        return redirect('landing_page')  # Replace 'landing_page' with the actual name of your landing page URL pattern
     return render(request, 'stories/delete_profile.html')
 
 def custom_login(request):
