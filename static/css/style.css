@@ -1,20 +1,18 @@
 /* General Page Styling */
 body {
-    background: #121212; /* Dark background */
-    color: #e0b3ff; /* Light purple text */
+    background: #121212; /* Deep Dark Background */
+    color: #e0b3ff; /* Light Purple Text */
     font-family: 'Arial', sans-serif;
     min-height: 100vh;
     display: flex;
-    flex-direction: column;
-    align-items: center;
     justify-content: center;
-    margin: 0;
+    align-items: center;
     padding: 20px;
 }
 
 /* Main Container */
 .container-fluid {
-    background: rgba(40, 40, 40, 0.9); /* Dark gray with transparency */
+    background: rgba(40, 40, 40, 0.95); /* Dark gray with slight transparency */
     padding: 40px;
     border-radius: 12px;
     box-shadow: 0 4px 20px rgba(255, 0, 255, 0.2); /* Pinkish glow */
@@ -24,10 +22,10 @@ body {
 
 /* Login Container */
 .login-container {
-    background: #1e1e1e;
+    background: #1a1a1a; /* Slightly darker than container */
     padding: 40px;
     border-radius: 12px;
-    box-shadow: 0 4px 20px rgba(255, 0, 255, 0.2); /* Pinkish glow */
+    box-shadow: 0 4px 15px rgba(255, 0, 255, 0.15);
     width: 100%;
     max-width: 400px;
 }
@@ -36,26 +34,32 @@ body {
 .title, .login-title {
     font-size: 28px;
     font-weight: 600;
-    color: #e0b3ff; /* Light purple */
+    color: #e0b3ff; /* Light Purple */
     text-align: center;
     margin-bottom: 20px;
 }
 
 /* Buttons */
 .btn-custom {
-    background: #9b59b6; /* Purple */
-    color: #ffffff; /* White text */
-    padding: 10px 20px;
+    background: linear-gradient(45deg, #9b59b6, #8e44ad); /* Gradient Purple */
+    color: #ffffff;
+    padding: 12px 20px;
     font-weight: 500;
     border-radius: 8px;
+    transition: all 0.3s ease;
     border: none;
     cursor: pointer;
-    transition: background 0.3s ease, box-shadow 0.3s ease;
+    text-align: center;
+    display: inline-block;
 }
 
 .btn-custom:hover {
-    background: #8e44ad; /* Darker purple */
-    box-shadow: 0 0 10px #ff66b2; /* Pink glow */
+    background: linear-gradient(45deg, #8e44ad, #9b59b6);
+    box-shadow: 0 0 12px #ff66b2; /* Neon Glow */
+}
+
+.btn-custom:focus {
+    outline: 2px solid #ff66b2; /* Focus Indicator */
 }
 
 /* Form Controls */
@@ -65,14 +69,13 @@ body {
     background: #222;
     color: #e0b3ff;
     padding: 10px;
-    width: 100%;
-    font-size: 16px;
+    transition: all 0.3s ease;
 }
 
 .form-control:focus {
-    outline: none;
-    border-color: #ff66b2; /* Neon pink */
+    border-color: #ff66b2;
     box-shadow: 0 0 8px #ff66b2;
+    outline: none;
 }
 
 /* Links */
@@ -80,24 +83,25 @@ body {
     text-align: center;
     display: block;
     margin-top: 10px;
-    color: #ff66b2; /* Neon pink */
+    color: #ff66b2; /* Neon Pink */
     text-decoration: none;
     font-weight: 500;
-    transition: color 0.3s ease;
+    transition: all 0.3s ease;
 }
 
 .link:hover, .signup-link:hover, .password-reset-link:hover {
     text-decoration: underline;
-    color: #ff3399; /* Brighter pink */
+    color: #ff3399; /* Brighter Pink */
 }
 
-/* Navbar (if added later) */
+/* Navbar */
 .navbar {
     background: #1e1e1e;
-    padding: 10px 20px;
+    padding: 12px 20px;
     display: flex;
     justify-content: space-between;
     align-items: center;
+    border-radius: 8px;
 }
 
 .navbar-brand {
@@ -109,6 +113,17 @@ body {
 
 .navbar-brand:hover {
     color: #ff3399;
+}
+
+/* Navbar Links */
+.navbar a {
+    color: #e0b3ff;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.navbar a:hover {
+    color: #ff66b2;
 }
 
 /* Responsive Design */
@@ -123,6 +138,12 @@ body {
     }
 
     .btn-custom {
-        width: 100%; /* Full width buttons on small screens */
+        width: 100%;
+        text-align: center;
+        padding: 14px;
+    }
+
+    .form-control {
+        font-size: 16px;
     }
 }
