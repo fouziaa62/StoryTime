@@ -51,12 +51,9 @@
           <div class="story-card p-4">
             <h4 class="text-dark">{{ story.title }}</h4>
             <p class="text-dark">{{ story.description|truncatewords:100 }}</p>
-            
-            {% if user.is_authenticated %}
-              <a href="{% url 'story_detail' story.id %}" class="btn btn-custom">Read More</a>
-            {% else %}
+           
               <a href="{% url 'login' %}" class="btn btn-custom">Read More</a>
-            {% endif %}
+           
           </div>
         </div>
       {% endfor %}
