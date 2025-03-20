@@ -5,7 +5,7 @@
 {% block content %}
 <div class="container my-5">
     <div class="text-center">
-        <h1 class="display-4 text-primary fw-bold">Story Share</h1>
+        <h1 class="display-4 text-primary fw-bold">Story Time</h1>
         <p class="lead text-muted">Read & Share Your Stories with the World</p>
     </div>
     <hr class="my-4">
@@ -16,8 +16,8 @@
         </div>
         
         <div class="d-flex justify-content-center gap-3 mb-5">
-            <a href="{% url 'add_story' %}" class="btn btn-success btn-lg shadow-sm">➕ Add Story</a>
-            <a href="{% url 'profile' %}" class="btn btn-outline-primary btn-lg shadow-sm">👤</a>
+            
+            <a href="{% url 'profile' %}" class="btn btn-outline-primary btn-lg shadow-sm">🐙 Profile</a>
             <form action="{% url 'logout' %}" method="post" style="display:inline;">
                 {% csrf_token %}
                 <button type="submit" class="btn btn-warning btn-lg shadow-sm">Log Out</button>
@@ -25,7 +25,14 @@
         </div>
 
         <h2 class="text-center text-secondary">📚 Stories</h2>
+
         <div class="row justify-content-center">
+            <div class="col-md-8 text-center">
+            <br>
+            <a href="{% url 'add_story' %}" class="btn btn-success btn-custom shadow-sm">✍️ Write Your Story</a>
+            <br>
+            <br>
+            </div>
             {% for story in stories %}
                 <div class="col-md-8 mb-4">
                     <div class="card shadow-sm border-0 rounded">
