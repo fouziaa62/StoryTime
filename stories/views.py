@@ -21,11 +21,13 @@ def landing_page(request):
     print("Stories for Landing Page:", stories) 
     return render(request, 'landing.html', {'stories': stories})
 
+
 # This is a view function that returns a list of stories.
 def story_list(request):
     stories = Story.objects.all().order_by('-created_at')
     return render(request, 'stories/story_list.html', {'stories': stories})
-  
+
+ 
 # this is a view function that returns a signup form.
 def signup(request):
     if request.method == 'POST':

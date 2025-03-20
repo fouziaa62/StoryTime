@@ -200,4 +200,34 @@ body {
         opacity: 1;
     }
 }
+/* Ensure all cards are the same fixed height */
+.story-card {
+    height: 200px;  /* Fixed height for all cards */
+    display: flex;
+    flex-direction: column;  /* Stack elements vertically */
+    justify-content: space-between;  /* Space out the title, description, and button */
+    overflow: hidden;  /* Prevent overflow from affecting layout */
+    background-color: #fff;  /* Background color for the card */
+}
 
+.story-card h4 {
+    font-size: 1.25rem;  /* Adjust title size */
+    margin-bottom: 10px;  /* Space between title and description */
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.story-card p {
+    flex-grow: 1;  /* Allow description to take up available space */
+    margin-bottom: 15px;  /* Add space at the bottom */
+    overflow: visible;  /* Prevent overflow of text */
+    text-overflow: ellipsis;  /* Truncate text with '...' */
+    white-space: normal;  /* Allow multiline description */
+    display: -webkit-box;  /* Ensure multiline text */
+    -webkit-line-clamp: 6;  /* Limit to a certain number of lines */
+    -webkit-box-orient: vertical;  /* Required for multiline truncation */
+}
+
+.btn-custom {
+    margin-top: auto;  /* Push button to the bottom */
+}

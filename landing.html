@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Landing Page</title>
+    <link rel="stylesheet" href="{% static 'style/style.css' %}">
+</head>
+<body>
+    <div class="container my-5">
+        <div class="text-center">
+            <h1 class="display-4 text-primary fw-bold">Welcome to StoryTime</h1>
+            <p class="lead text-muted">Read & Share Your Stories with the World</p>
+        </div>
+        <hr class="my-4">
+
+        <div class="row justify-content-center">
+            {% for story in stories %}
+                <div class="col-md-4 mb-4">
+                    <div class="card shadow-sm border-0 rounded">
+                        <div class="card-body">
+                            <h3 class="card-title">
+                                <a href="{% url 'story_detail' story.id %}" class="text-decoration-none text-dark fw-bold">{{ story.title }}</a>
+                            </h3>
+                            <p class="card-text">{{ story.content|truncatewords:20 }}</p>
+                            <a href="{% url 'story_detail' story.id %}" class="btn btn-outline-info btn-sm">Read More →</a>
+                        </div>
+                    </div>
+                </div>
+            {% empty %}
+                <div class="text-center">
+                    <p class="text-muted">No stories yet. Be the first to add one!</p>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+</body>
+</html>
