@@ -2,6 +2,7 @@ from django.urls import path
 from django.contrib.auth import views as auth_views
 from . import views
 from .views import profile_view, edit_profile, delete_profile
+from .views import landing_page
 
 urlpatterns = [
     path('', views.landing_page, name='landing_page'),

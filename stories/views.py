@@ -1,5 +1,5 @@
 from django.shortcuts import render, get_object_or_404, redirect
-from .models import Story, Comment, Like
+from .models import Story, Like
 from .forms import CommentForm
 from .forms import UserSignupForm, StoryForm
 from django.contrib.auth.decorators import login_required
@@ -14,11 +14,13 @@ from django.contrib import messages
 from django.contrib.auth.signals import user_logged_in, user_logged_out
 from django.dispatch import receiver
 
+
 # This is a view function that returns the landing page.
 def landing_page(request):
-    return render(request, 'landing.html')
+    stories = Story.objects.all()[:6]  # Get the latest 6 stories
+    print("Stories for Landing Page:", stories) 
+    return render(request, 'landing.html', {'stories': stories})
 
-@login_required
 # This is a view function that returns a list of stories.
 def story_list(request):
     stories = Story.objects.all().order_by('-created_at')
