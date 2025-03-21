@@ -1,5 +1,5 @@
-from django.shortcuts import render, get_object_or_404, redirect
-from .models import Story, Like
+from django.shortcuts import render, get_object_or_404, redirect, reverse
+from .models import Story, Like, Comment
 from .forms import CommentForm
 from .forms import UserSignupForm, StoryForm
 from django.contrib.auth.decorators import login_required
@@ -47,6 +47,10 @@ def home(request):
 
 # This is a view function that returns a single story.
 
+from django.shortcuts import render, get_object_or_404, redirect
+from .models import Story, Comment, Like
+from .forms import CommentForm
+
 def story_detail(request, story_id):
     # Get the story or return 404 if not found
     story = get_object_or_404(Story, id=story_id)
@@ -59,16 +63,21 @@ def story_detail(request, story_id):
     # Handle POST request for submitting a new comment
     if request.method == 'POST':
         form = CommentForm(request.POST)
+
         if form.is_valid():
             comment = form.save(commit=False)
-            comment.story = story
-            comment.author = request.user
-            comment.save()
-            return redirect('story_detail', story_id=story.id)  # Redirect to the same story page after saving comment
-    else:
-        form = CommentForm()  # Instantiate an empty form for GET request
+            comment.story = story  # Link the comment to the story
+            comment.author = request.user  # Associate the comment with the current user
+            comment.save()  # Save the comment to the database
+            return redirect(reverse('story_detail', args=[story.id]) + '#comments-section')
+              # Redirect to the same page to prevent resubmission
+        else:
+            print("Form is not valid:", form.errors)  # Log form errors for debugging
 
-    # Render the template with the story, comments, form, likes count, and user like status
+    else:
+        form = CommentForm()  # Instantiate an empty form for GET requests
+
+    # Render the template with context
     return render(request, 'stories/story_detail.html', {
         'story': story,
         'comments': comments,
@@ -76,6 +85,7 @@ def story_detail(request, story_id):
         'likes_count': likes_count,
         'user_has_liked': user_has_liked
     })
+
 
 @login_required
 def add_story(request):

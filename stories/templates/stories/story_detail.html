@@ -6,6 +6,7 @@
 <h1 class="title">{{ story.title }}</h1>
 <p><strong>By: {{ story.author }}</strong> | {{ story.created_at }}</p>
 <p>{{ story.content }}</p>
+
 {% if user == story.author %}
 <a href="{% url 'edit_story' story.id %}" class="link">Edit</a>
 <form action="{% url 'delete_story' story.id %}" method="post" style="display:inline;">
@@ -13,7 +14,7 @@
     <button type="submit" class="btn btn-custom" onclick="return confirm('Are you sure?');">Delete</button>
 </form>
 {% endif %}
-<br>
+
 <br>
 <p>{{ likes_count }} Likes</p>
 <form method="POST" action="{% url 'toggle_like' story.id %}">
@@ -27,42 +28,56 @@
     </button>
 </form>
 
-  <p>{{ story.likes.count }} Likes</p>
-  <br>
-  <h2>Comments</h2>
+<p>{{ story.likes.count }} Likes</p>
 
-  {% for comment in comments %}
-      <div class="comment">
-          <p><strong>{{ comment.author }}</strong> - {{ comment.created_at }}</p>
-          <p>{{ comment.content|slice:":100" }}{% if comment.content|length > 100 %}...{% endif %}</p>
-      </div>
-  {% empty %}
-      <p>No comments yet. Be the first to comment!</p>
-  {% endfor %}
-  
-  <h3>Add a Comment</h3>
-  <form method="post">
-      {% csrf_token %}
-      
-      <div class="mb-3">
-          <label for="id_comment" class="form-label">Your Comment:</label>
-          <textarea id="comment_textarea" name="comment" class="form-control" rows="4" maxlength="300" oninput="updateCommentWordCount()"></textarea>
-          <p id="comment-word-count" class="text-muted mt-1">0 / 50 words</p>
-      </div>
-  
-      <button type="submit" class="btn btn-custom">Add Comment</button>
-  </form>
-  
-  <script>
-      // Update word count for comment
-      function updateCommentWordCount() {
-          const commentTextarea = document.getElementById('comment_textarea');
-          const wordCountElement = document.getElementById('comment-word-count');
-          const wordCount = commentTextarea.value.split(/\s+/).filter(Boolean).length;
-          wordCountElement.textContent = `${wordCount} / 50 words`;
-      }
-  </script>
-  
+<br>
+<h2>Comments</h2>
+
+{% for comment in comments %}
+    <div class="comment">
+        <p><strong>{{ comment.author.username }}</strong> - {{ comment.created_at }}</p>
+        <p>{{ comment.content|slice:":100" }}{% if comment.content|length > 100 %}...{% endif %}</p>
+    </div>
+{% empty %}
+    <p>No comments yet. Be the first to comment!</p>
+{% endfor %}
+
+<h3 id="comments-section">Add a Comment</h3>
+<form method="post">
+    {% csrf_token %}
+
+    <div class="mb-3">
+        <label for="id_comment" class="form-label">Your Comment:</label>
+        <textarea id="comment_textarea" name="content" class="form-control" rows="4" maxlength="300" oninput="updateCommentWordCount()"></textarea>
+        <p id="comment-word-count" class="text-muted mt-1">0 / 50 words</p>
+    </div>
+
+    <button type="submit" class="btn btn-custom">Add Comment</button>
+</form>
+
+<script>
+    // Update word count for comment
+    function updateCommentWordCount() {
+        const commentTextarea = document.getElementById('comment_textarea');
+        const wordCountElement = document.getElementById('comment-word-count');
+        const wordCount = commentTextarea.value.split(/\s+/).filter(Boolean).length;
+        wordCountElement.textContent = `${wordCount} / 50 words`;
+    }
+
+    
+    document.addEventListener("DOMContentLoaded", function() {
+        // Scroll to the comments section after the page reloads
+        if (window.location.hash === '#comments-section') {
+            const commentsSection = document.getElementById('comments-section');
+            if (commentsSection) {
+                commentsSection.scrollIntoView({ behavior: 'smooth' });
+            }
+        }
+    });
+
+
+</script>
+
 
 <br>
 <a href="{% url 'story_list' %}" class="link">Back to story list</a>
