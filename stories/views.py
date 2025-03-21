@@ -1,9 +1,9 @@
+from django.contrib import messages
 from django.shortcuts import render, get_object_or_404, redirect, reverse
 from .models import Story, Like, Comment
 from .forms import CommentForm
 from .forms import UserSignupForm, StoryForm
 from django.contrib.auth.decorators import login_required
-from django.contrib import messages
 from django.contrib.auth import authenticate, login
 from django.core.exceptions import PermissionDenied
 from .forms import ProfileForm

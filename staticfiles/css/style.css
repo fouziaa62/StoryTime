@@ -62,6 +62,17 @@ body {
     outline: 2px solid #ff66b2; /* Focus Indicator */
 }
 
+textarea {
+    width: 100%; /* Makes it stretch to fill the container */
+    min-width: 300px; /* Ensures it doesn’t shrink too much */
+    max-width: 100%; /* Prevents it from overflowing */
+    height: auto; /* Allows height to adjust */
+    min-height: 150px; /* Set a minimum height */
+    font-size: 1rem; /* Ensures text remains readable */
+    resize: vertical; /* Allows users to resize only vertically */
+}
+
+
 /* Form Controls */
 .form-control {
     border-radius: 8px;
@@ -94,37 +105,7 @@ body {
     color: #ff3399; /* Brighter Pink */
 }
 
-/* Navbar */
-.navbar {
-    background: #1e1e1e;
-    padding: 12px 20px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    border-radius: 8px;
-}
 
-.navbar-brand {
-    font-size: 22px;
-    font-weight: bold;
-    color: #ff66b2;
-    text-decoration: none;
-}
-
-.navbar-brand:hover {
-    color: #ff3399;
-}
-
-/* Navbar Links */
-.navbar a {
-    color: #e0b3ff;
-    text-decoration: none;
-    transition: color 0.3s ease;
-}
-
-.navbar a:hover {
-    color: #ff66b2;
-}
 
 /* Responsive Design */
 @media (max-width: 768px) {
