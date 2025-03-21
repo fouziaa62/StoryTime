@@ -206,6 +206,7 @@ textarea {
     white-space: normal;  /* Allow multiline description */
     display: -webkit-box;  /* Ensure multiline text */
     -webkit-line-clamp: 6;  /* Limit to a certain number of lines */
+    line-clamp: 6;  /* Standard property for compatibility */
     -webkit-box-orient: vertical;  /* Required for multiline truncation */
 }
 
