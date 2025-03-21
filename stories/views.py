@@ -10,7 +10,6 @@ from .forms import ProfileForm
 from .models import Profile
 from django import forms
 from django.contrib.auth import get_user_model
-from django.contrib import messages
 from django.contrib.auth.signals import user_logged_in, user_logged_out
 from django.dispatch import receiver
 
@@ -165,10 +164,14 @@ def toggle_like(request, story_id):
     like, created = Like.objects.get_or_create(user=user, story=story)
 
     if not created:
-        # If the like already exists, we delete it (unlike)
+ # If the like already exists, we delete it (unlike)
         like.delete()
 
     return redirect('story_detail', story_id=story.id)
+
+
+
+# notification messages 
 
 @receiver(user_logged_in)
 def login_success(sender, request, user, **kwargs):

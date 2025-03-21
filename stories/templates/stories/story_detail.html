@@ -29,22 +29,40 @@
 
   <p>{{ story.likes.count }} Likes</p>
   <br>
-<h2>Comments</h2>
-{% for comment in comments %}
-    <div class="comment">
-        <p><strong>{{ comment.author }}</strong> - {{ comment.created_at }}</p>
-        <p>{{ comment.content }}</p>
-    </div>
-{% empty %}
-    <p>No comments yet. Be the first to comment!</p>
-{% endfor %}
+  <h2>Comments</h2>
 
-<h3>Add a Comment</h3>
-<form method="post">
-    {% csrf_token %}
-    {{ form.as_p }}
-    <button type="submit" class="btn btn-custom">Add Comment</button>
-</form>
+  {% for comment in comments %}
+      <div class="comment">
+          <p><strong>{{ comment.author }}</strong> - {{ comment.created_at }}</p>
+          <p>{{ comment.content|slice:":100" }}{% if comment.content|length > 100 %}...{% endif %}</p>
+      </div>
+  {% empty %}
+      <p>No comments yet. Be the first to comment!</p>
+  {% endfor %}
+  
+  <h3>Add a Comment</h3>
+  <form method="post">
+      {% csrf_token %}
+      
+      <div class="mb-3">
+          <label for="id_comment" class="form-label">Your Comment:</label>
+          <textarea id="comment_textarea" name="comment" class="form-control" rows="4" maxlength="300" oninput="updateCommentWordCount()"></textarea>
+          <p id="comment-word-count" class="text-muted mt-1">0 / 50 words</p>
+      </div>
+  
+      <button type="submit" class="btn btn-custom">Add Comment</button>
+  </form>
+  
+  <script>
+      // Update word count for comment
+      function updateCommentWordCount() {
+          const commentTextarea = document.getElementById('comment_textarea');
+          const wordCountElement = document.getElementById('comment-word-count');
+          const wordCount = commentTextarea.value.split(/\s+/).filter(Boolean).length;
+          wordCountElement.textContent = `${wordCount} / 50 words`;
+      }
+  </script>
+  
 
 <br>
 <a href="{% url 'story_list' %}" class="link">Back to story list</a>
