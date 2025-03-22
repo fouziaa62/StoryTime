@@ -6,8 +6,8 @@ StoryTime is a web application where users can read and share their stories with
 
 Welcome to StoryTime! This project allows users to share their stories with a community of readers. You can explore the source code on GitHub and check out the live project using the links below:
 
-- [Source Code](https://github.com/yourusername/StoryTime)
-- [Live Project](https://yourliveprojecturl.com)
+- [Source Code](https://github.com/fouziaa62/StoryTime)
+- [Live Project](https://stories-724c424e708b.herokuapp.com/)
 
 ## Purpose
 
