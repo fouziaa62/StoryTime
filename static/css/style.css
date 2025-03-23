@@ -76,7 +76,6 @@ textarea {
     border: 1px solid #e0b3ff;
     padding: 1px;
     border-radius: 8px;
-    -webkit-user-modify: read-write !important;
 }
 
 /* Form Controls */
@@ -188,10 +187,6 @@ textarea {
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: normal;
-    display: -webkit-box;
-    -webkit-line-clamp: 6;
-    line-clamp: 6;
-    -webkit-box-orient: vertical;
 }
 
 /* Responsive Design */
