@@ -1,7 +1,7 @@
 /* General Page Styling */
 body {
     background: #121212; /* Deep Dark Background */
-    color: #e0b3ff; /* Light Purple Text */
+    color: #ffffff; /* Light Purple Text */
     font-family: 'Arial', sans-serif;
     min-height: 100vh;
     display: flex;
