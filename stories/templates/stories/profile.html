@@ -11,10 +11,10 @@
         <p>No profile picture uploaded.</p>
     {% endif %}
     <p><strong>Bio:</strong> {{ profile.bio }}</p>
-    <a href="{% url 'edit_profile' %}" class="btn btn-primary">Edit Profile</a>
+    <a href="{% url 'edit_profile' %}" class="btn btn-primary mb-2 me-2">Edit Profile</a>
     <form action="{% url 'delete_profile' %}" method="post" style="display:inline;">
         {% csrf_token %}
-        <button type="submit" class="btn btn-danger btn-primary shadow-sm" onclick="return confirm('Are you sure you want to delete your profile?')">
+        <button type="submit" class="btn btn-danger btn-primary shadow-sm mb-2 me-2" onclick="return confirm('Are you sure you want to delete your profile?')">
             🗑️ Delete Profile
         </button>
     </form>

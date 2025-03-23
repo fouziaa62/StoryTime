@@ -17,7 +17,7 @@ body {
     border-radius: 12px;
     box-shadow: 0 4px 20px rgba(255, 0, 255, 0.2); /* Pinkish glow */
     width: 100%;
-    max-width: 800px;
+    max-width: 100%;
 }
 
 /* Login Container */
@@ -51,6 +51,7 @@ body {
     cursor: pointer;
     text-align: center;
     display: inline-block;
+    margin-top: auto; /* Push button to the bottom */
 }
 
 .btn-custom:hover {
@@ -62,16 +63,21 @@ body {
     outline: 2px solid #ff66b2; /* Focus Indicator */
 }
 
+/* Textareas */
 textarea {
-    width: 100%; /* Makes it stretch to fill the container */
-    min-width: 300px; /* Ensures it doesn’t shrink too much */
-    max-width: 100%; /* Prevents it from overflowing */
-    height: auto; /* Allows height to adjust */
-    min-height: 150px; /* Set a minimum height */
-    font-size: 1rem; /* Ensures text remains readable */
-    resize: vertical; /* Allows users to resize only vertically */
+    min-width: 100%;
+    max-width: 100%;
+    height: auto;
+    min-height: 150px;
+    font-size: 1rem;
+    resize: vertical;
+    background: #222;
+    color: #e0b3ff;
+    border: 1px solid #e0b3ff;
+    padding: 1px;
+    border-radius: 8px;
+    -webkit-user-modify: read-write !important;
 }
-
 
 /* Form Controls */
 .form-control {
@@ -94,7 +100,7 @@ textarea {
     text-align: center;
     display: block;
     margin-top: 10px;
-    color: #ff66b2; /* Neon Pink */
+    color: #ff66b2;
     text-decoration: none;
     font-weight: 500;
     transition: all 0.3s ease;
@@ -102,10 +108,91 @@ textarea {
 
 .link:hover, .signup-link:hover, .password-reset-link:hover {
     text-decoration: underline;
-    color: #ff3399; /* Brighter Pink */
+    color: #ff3399;
 }
 
+/* Notification Container */
+.notification-container {
+    position: fixed;
+    top: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 90%;
+    max-width: 500px;
+    z-index: 1050;
+    text-align: center;
+}
 
+/* Notification Box */
+.notification {
+    background: #2b2b2b;
+    color: #ffffff;
+    padding: 12px 20px;
+    border-radius: 8px;
+    margin-bottom: 10px;
+    font-size: 14px;
+    font-weight: 500;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    animation: slideDown 0.5s ease-in-out;
+    box-shadow: 0 4px 10px rgba(255, 0, 255, 0.3);
+}
+
+/* Notification Colors */
+.alert-success { background: #4CAF50; }
+.alert-info { background: #2196F3; }
+.alert-warning { background: #ff9800; }
+.alert-danger { background: #f44336; }
+
+/* Close Button */
+.close-btn {
+    cursor: pointer;
+    font-weight: bold;
+    margin-left: 10px;
+    color: white;
+}
+
+/* Animation for smooth entry */
+@keyframes slideDown {
+    from {
+        transform: translate(-50%, -50px);
+        opacity: 0;
+    }
+    to {
+        transform: translate(-50%, 0);
+        opacity: 1;
+    }
+}
+
+/* Story Cards */
+.story-card {
+    height: 200px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    overflow: hidden;
+    background-color: #fff;
+}
+
+.story-card h4 {
+    font-size: 1.25rem;
+    margin-bottom: 10px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.story-card p {
+    flex-grow: 1;
+    margin-bottom: 15px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: normal;
+    display: -webkit-box;
+    -webkit-line-clamp: 6;
+    line-clamp: 6;
+    -webkit-box-orient: vertical;
+}
 
 /* Responsive Design */
 @media (max-width: 768px) {
@@ -127,89 +214,22 @@ textarea {
     .form-control {
         font-size: 16px;
     }
-}
-/* Notification Container */
-.notification-container {
-    position: fixed;
-    top: 10px;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 90%;
-    max-width: 500px;
-    z-index: 1050; /* Ensure it's above other elements */
-    text-align: center;
-}
-
-/* Notification Box */
-.notification {
-    background: #2b2b2b; /* Dark gray */
-    color: #ffffff;
-    padding: 12px 20px;
-    border-radius: 8px;
-    margin-bottom: 10px;
-    font-size: 14px;
-    font-weight: 500;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    animation: slideDown 0.5s ease-in-out;
-    box-shadow: 0 4px 10px rgba(255, 0, 255, 0.3);
-}
-
-/* Notification Colors */
-.alert-success { background: #4CAF50; } /* Green */
-.alert-info { background: #2196F3; } /* Blue */
-.alert-warning { background: #ff9800; } /* Orange */
-.alert-danger { background: #f44336; } /* Red */
-
-/* Close Button */
-.close-btn {
-    cursor: pointer;
-    font-weight: bold;
-    margin-left: 10px;
-    color: white;
-}
-
-/* Animation for smooth entry */
-@keyframes slideDown {
-    from {
-        transform: translate(-50%, -50px);
-        opacity: 0;
-    }
-    to {
-        transform: translate(-50%, 0);
-        opacity: 1;
+    textarea {
+        min-height: 100px;
+        width: 100%;
+        min-width: 100%;
     }
 }
-/* Ensure all cards are the same fixed height */
-.story-card {
-    height: 200px;  /* Fixed height for all cards */
-    display: flex;
-    flex-direction: column;  /* Stack elements vertically */
-    justify-content: space-between;  /* Space out the title, description, and button */
-    overflow: hidden;  /* Prevent overflow from affecting layout */
-    background-color: #fff;  /* Background color for the card */
+/* Reduce padding inside card on smaller screens */
+@media (max-width: 576px) {
+    .card {
+        padding: 1rem; /* Adjust padding as needed */
+    }
 }
 
-.story-card h4 {
-    font-size: 1.25rem;  /* Adjust title size */
-    margin-bottom: 10px;  /* Space between title and description */
-    overflow: hidden;
-    text-overflow: ellipsis;
-}
-
-.story-card p {
-    flex-grow: 1;  /* Allow description to take up available space */
-    margin-bottom: 15px;  /* Add space at the bottom */
-    overflow: visible;  /* Prevent overflow of text */
-    text-overflow: ellipsis;  /* Truncate text with '...' */
-    white-space: normal;  /* Allow multiline description */
-    display: -webkit-box;  /* Ensure multiline text */
-    -webkit-line-clamp: 6;  /* Limit to a certain number of lines */
-    line-clamp: 6;  /* Standard property for compatibility */
-    -webkit-box-orient: vertical;  /* Required for multiline truncation */
-}
-
-.btn-custom {
-    margin-top: auto;  /* Push button to the bottom */
+@media (max-width: 480px) {
+    textarea {
+        width: 100%; /* Ensures it adapts properly */
+        min-width: unset; /* Removes any fixed min-width */
+    }
 }

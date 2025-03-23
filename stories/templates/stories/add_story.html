@@ -7,8 +7,7 @@
 {% block content %}
     <div class="container mt-5">
         <div class="row justify-content-center">
-            <div class="col-md-8 col-lg-6">
-                <div class="form-container p-4 shadow-lg rounded">
+            <div class="col-12 col-md-8 col-lg-6">
                     <h2 class="title text-center mb-4">Add Story</h2>
                     <form method="post">
                         {% csrf_token %}
@@ -33,7 +32,6 @@
                 </div>
             </div>
         </div>
-    </div>
 
     <script src = "{% static 'js/wordcount.js' %}"></script>
 {% endblock %}
