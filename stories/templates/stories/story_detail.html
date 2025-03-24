@@ -48,7 +48,7 @@
     {% csrf_token %}
 
     <div class="mb-3">
-        <label for="id_comment" class="form-label">Your Comment:</label>
+        <label class="form-label">Your Comment:</label>
         <textarea id="comment_textarea" name="content" class="form-control" rows="4" maxlength="300" oninput="updateCommentWordCount()"></textarea>
         <p id="comment-word-count" class="text-muted mt-1">0 / 50 words</p>
     </div>

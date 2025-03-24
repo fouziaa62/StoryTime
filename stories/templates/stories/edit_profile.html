@@ -8,32 +8,30 @@
     <div class="container mt-5">
         <div class="row justify-content-center">
             <div class="col-md-8 col-lg-6 col-12">
-                    <h2 class="text-center mb-4">Edit Profile</h2>
-                    <form method="post" enctype="multipart/form-data">
-                        {% csrf_token %}
+                <h2 class="text-center mb-4">Edit Profile</h2>
+                <form method="post" enctype="multipart/form-data">
+                    {% csrf_token %}
 
-                        <div class="mb-3">
-                            <label for="id_profile_picture" class="form-label">Profile Picture:</label>
-                            {{ form.profile_picture }}
-                        </div>
-
-                        <div class="mb-3">
-                            <label for="id_bio" class="form-label">Bio:</label>
-                            <textarea id="profile_bio" name="bio" class="form-control" rows="5" oninput="updateBioWordCount()"></textarea>
-                            <p id="bio-word-count" class="mt-1">0 / 50 words</p>
-                        </div>
-
-                        <button type="submit" class="btn btn-custom w-100">Save Changes</button>
-                    </form>
-
-                    <div class="text-center mt-3">
-                        <a href="{% url 'profile' %}" class="text-decoration-none">Back to Profile</a>
+                    <div class="mb-3">
+                        <label class="form-label">Profile Picture:</label>
+                        {{ form.profile_picture }}
                     </div>
+
+                    <div class="mb-3">
+                        <label class="form-label">Bio:</label>
+                        <textarea id="profile_bio" name="bio" class="form-control" rows="5" oninput="updateBioWordCount()"></textarea>
+                        <p id="bio-word-count" class="mt-1">0 / 50 words</p>
+                    </div>
+
+                    <button type="submit" class="btn btn-custom w-100">Save Changes</button>
+                </form>
+
+                <div class="text-center mt-3">
+                    <a href="{% url 'profile' %}" class="text-decoration-none">Back to Profile</a>
                 </div>
             </div>
         </div>
-
-   
+    </div>
 {% endblock %}
 
 {% block extra_head %}
