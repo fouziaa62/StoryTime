@@ -1,6 +1,7 @@
 # StoryTime
 
 StoryTime is a web application where users can read and share their stories with the world. Users can create an account, log in, add stories, view profiles, and delete their profiles.
+![Screenshot 2025-03-23 142119](https://github.com/user-attachments/assets/f8441856-6f90-44fe-b57c-141970270fbb)
 
 ## Introduction
 
@@ -66,7 +67,8 @@ The database structure of StoryTime is designed to efficiently store and manage 
 
 The ERD below illustrates the relationships between the core models in the StoryTime application:
 
-![ERD](path/to/your/erd/image.png)
+![Screenshot 2025-03-24 154019](https://github.com/user-attachments/assets/24fbc912-7e6f-4dc7-bb08-065a3064c975)
+
 
 - **User**: The central entity representing the users of the application.
 - **Profile**: Each user has one profile, which includes additional information such as profile picture and bio.
@@ -91,7 +93,6 @@ Security is a critical aspect of the database design for StoryTime. Key security
 - **Data Encryption**: Sensitive data, such as passwords, are encrypted using industry-standard hashing algorithms to protect user information.
 - **Access Control**: Access to the database is restricted to authorized users only, with role-based access control implemented to ensure that users have appropriate permissions.
 - **Data Validation**: Input data is validated at both the application and database levels to prevent SQL injection and other common security vulnerabilities.
-- **Regular Backups**: Regular backups of the database are performed to ensure data recovery in case of data loss or corruption.
 
 ## Future Database Enhancements
 
