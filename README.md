@@ -67,7 +67,8 @@ The database structure of StoryTime is designed to efficiently store and manage 
 
 The ERD below illustrates the relationships between the core models in the StoryTime application:
 
-![ERD](path/to/your/erd/image.png)
+![Screenshot 2025-03-24 154019](https://github.com/user-attachments/assets/24fbc912-7e6f-4dc7-bb08-065a3064c975)
+
 
 - **User**: The central entity representing the users of the application.
 - **Profile**: Each user has one profile, which includes additional information such as profile picture and bio.
