@@ -261,6 +261,60 @@ Some examples of user stories from the project board are:
 - **As a user, I want to edit my profile so that I can update my bio and profile picture.**
 - **As a user, I want to like and comment on stories so that I can engage with the content and the author.**
 
+# **Development Process**
+
+The development of this project followed a structured approach, from ideation to deployment. Below are the key stages:
+
+## **1. Ideation**
+The project started with brainstorming ideas to address the needs of users who want to read, share, and write stories. The main goal was to create a platform that provides an easy and engaging way for users to create and share their stories, with features like:
+
+- User authentication (sign up, login, logout)
+- CRUD functionality for stories
+- Profile management with customization options (bio and profile picture)
+- Commenting and liking functionality
+- A responsive, user-friendly interface
+
+## **2. Planning**
+During the planning stage, the key features and user flows were outlined, and the following steps were taken:
+
+- **User Stories** were created to define the different actions users would take within the app.
+- **Wireframes** and **mockups** were designed to visualize the app's user interface (UI) and ensure a smooth user experience (UX).
+- Defined the database schema and relationships between models (e.g., users, stories, comments).
+- Set up a project management board to track tasks, using the **Agile methodology** with a **Kanban board** to break down tasks and ensure smooth development.
+
+## **3. Setting Up the Project**
+- **Django** was selected as the backend framework for building the application.
+- The project was initialized with `django-admin startproject` and `django-admin startapp` to set up the structure.
+- **PostgreSQL** was configured as the database for the project, ensuring scalability and better performance.
+
+## **4. User Authentication**
+- **User Sign-up and Login** functionality was implemented using Django’s built-in authentication system, allowing users to create accounts, log in, and log out securely.
+- Password reset functionality was integrated to allow users to reset their passwords if they forget them.
+
+## **5. Story Management (CRUD)**
+- A **Story** model was created with fields like title, content, and author.
+- Views were developed to allow users to **create**, **read**, **update**, and **delete** their own stories.
+- Templates were created for displaying and interacting with stories.
+
+## **6. Profile Management**
+- A **Profile** model was developed to store user-specific data such as a profile picture and bio.
+- Users can create, edit, and delete their profiles, with support for uploading a profile image via **Cloudinary**.
+
+## **7. Comments and Likes**
+- A **Comment** model was created, allowing users to leave comments on stories.
+- A **Like** feature was integrated, enabling users to like a story once.
+
+## **8. Responsive Design**
+- The UI was designed using **Bootstrap** to ensure that the application is fully responsive and accessible on all devices.
+- Custom styling was added to enhance the visual appeal and user experience, particularly using a **soft pink** theme for consistency.
+
+## **9. Deployment**
+- The project was deployed to **Heroku**, and the code was stored on **GitHub** for version control.
+- Continuous integration was set up to manage deployments efficiently from GitHub to Heroku.
+
+## **10. Future Development**
+- Features such as **direct messaging**, **author profiles**, and **story categories** will be added to the project in future releases.
+
 ## User Interface
 
 ### Wireframes
