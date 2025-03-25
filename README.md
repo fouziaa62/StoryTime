@@ -93,7 +93,6 @@ Security is a critical aspect of the database design for StoryTime. Key security
 - **Data Encryption**: Sensitive data, such as passwords, are encrypted using industry-standard hashing algorithms to protect user information.
 - **Access Control**: Access to the database is restricted to authorized users only, with role-based access control implemented to ensure that users have appropriate permissions.
 - **Data Validation**: Input data is validated at both the application and database levels to prevent SQL injection and other common security vulnerabilities.
-- **Regular Backups**: Regular backups of the database are performed to ensure data recovery in case of data loss or corruption.
 
 ## Future Database Enhancements
 
