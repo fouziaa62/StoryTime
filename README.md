@@ -259,7 +259,17 @@ Some examples of user stories from the project board are:
 
 ### Wireframes
 
-<!-- Add wireframe images here -->
+For Mobile screens:
+
+![Screenshot 2025-03-23 162652](https://github.com/user-attachments/assets/0624e12d-1f52-4e35-bed1-5d4788012f03)
+
+For Tablets:
+
+![Screenshot 2025-03-23 163939](https://github.com/user-attachments/assets/1b987bfe-4412-41f8-ad0f-bb9a333d98e1)
+
+For Larger screens:
+
+![Screenshot 2025-03-23 173730](https://github.com/user-attachments/assets/38d28e83-2ea3-4f47-a5b4-90b0207d5ab5)
 
 ### Color Scheme
 
@@ -399,18 +409,49 @@ This signal handler displays a logout message when a user logs out successfully.
 ### HTML Validation
 
 The HTML code was validated using the W3C Markup Validation Service to ensure it adheres to web standards and is free of errors.
+![Screenshot 2025-03-24 130722](https://github.com/user-attachments/assets/7794d395-c0c8-4f8f-8716-2f9f50331187)
+
+![Screenshot 2025-03-24 135447](https://github.com/user-attachments/assets/adbfcdf9-9315-4f78-95cb-2a33a402841c)
+
+![Screenshot 2025-03-24 135806](https://github.com/user-attachments/assets/d38a476d-5ba4-4239-b7d9-bbb1d7379383)
+
+![Screenshot 2025-03-24 141530](https://github.com/user-attachments/assets/e8e4e3fd-3e8d-4841-a76d-ac8c8734deba)
+
+![Screenshot 2025-03-24 141618](https://github.com/user-attachments/assets/40c2ad04-ec78-4e4c-a2a0-86b06857c91d)
+
+![Screenshot 2025-03-24 141733](https://github.com/user-attachments/assets/c9e12f3b-2178-4d22-b321-9dc6ced08401)
 
 ### CSS Validation
 
 The CSS code was validated using the W3C CSS Validation Service (Jigsaw) to ensure it adheres to web standards and is free of errors.
+![Screenshot 2025-03-23 130210](https://github.com/user-attachments/assets/5bdd7e40-caf1-4fda-86f2-11dcac127460)
+
 
 ### JavaScript Validation
 
 The JavaScript code was validated using JSLint to ensure it adheres to best practices and is free of errors.
 
+![Screenshot 2025-03-24 145414](https://github.com/user-attachments/assets/7c23c9bb-60c5-4084-8aa6-575408ed3a17)
+
+![Screenshot 2025-03-24 145451](https://github.com/user-attachments/assets/ebd8aeee-acb7-484d-b120-d464920471cf)
+
+
 ### Python Code Validation
 
 The Python code was validated using a continuous integration (CI) pipeline with a Python linter to ensure it adheres to best practices and is free of errors.
+
+![Screenshot 2025-03-24 144046](https://github.com/user-attachments/assets/4a7cfb18-0b9b-40a9-bda4-c3e33369d776)
+
+![Screenshot 2025-03-24 144123](https://github.com/user-attachments/assets/a3b6ddb4-914e-443b-894c-46d97700d6d8)
+
+![Screenshot 2025-03-24 144240](https://github.com/user-attachments/assets/a329ee7b-414c-430a-87f3-da6edb28c2ac)
+
+##Lighthouse Testing
+
+![Screenshot 2025-03-24 145839](https://github.com/user-attachments/assets/da94f639-6fd6-400c-b3be-e64ac97a57fb)
+
+![Screenshot 2025-03-24 145917](https://github.com/user-attachments/assets/56f2a8ac-9c69-4a51-9aea-629825d05355)
+
 
 ## Manual Testing
 
@@ -445,6 +486,28 @@ This section outlines a list of manual test cases to ensure that the core functi
 
 
 This checklist ensures a fully functional and user-friendly application. 
+
+# **Responsiveness**
+
+This project is designed to be fully responsive across various devices, ensuring a seamless user experience on desktops, tablets, and mobile devices.
+
+## **Responsive Design Features**
+The website has been built with **mobile-first design principles** and includes the following responsive features:
+
+### **1. Fluid Grid Layout**
+- The project uses **Bootstrap's grid system** (`container`, `row`, and `col`) to ensure flexibility across different screen sizes.
+- **CSS Flexbox** and **CSS Grid** have been used where necessary for better alignment and layout control.
+
+### **2. Media Queries**
+- Custom CSS media queries have been added to adjust styles for different screen sizes.
+- Example of a media query used in the project:
+  ```css
+  @media (max-width: 768px) {
+      .story-card {
+          padding: 10px;
+          font-size: 14px;
+      }
+  }
 
 
 
