@@ -246,6 +246,174 @@ StoryTime follows an iterative development process, where the project is divided
 
 User stories are used to capture the requirements and expectations of the users. Each user story describes a specific feature or functionality from the user's perspective, including the desired outcome and acceptance criteria.
 
+Some examples of user stories from the project board are:
+
+- **As a user, I want to create an account so that I can share my stories with others.**
+- **As a user, I want to log in to my account so that I can access my profile and stories.**
+- **As a user, I want to add a new story so that I can share my experiences with the community.**
+- **As a user, I want to edit my profile so that I can update my bio and profile picture.**
+- **As a user, I want to like and comment on stories so that I can engage with the content and the author.**
+
+## User Interface
+
+### Wireframes
+
+<!-- Add wireframe images here -->
+
+### Color Scheme
+
+The color scheme for StoryTime is designed to be visually appealing and easy on the eyes. The primary colors used are:
+
+- **Primary Color**: #007bff (Bootstrap Blue)
+- **Secondary Color**: #6c757d (Gray)
+- **Success Color**: #28a745 (Green)
+- **Danger Color**: #dc3545 (Red)
+- **Warning Color**: #ffc107 (Yellow)
+- **Info Color**: #17a2b8 (Cyan)
+- **Light Color**: #f8f9fa (Light Gray)
+- **Dark Color**: #343a40 (Dark Gray)
+
+### Fonts
+
+The fonts used in StoryTime are chosen for readability and aesthetics. The primary font used is:
+
+- **Font**: Arial, sans-serif
+
+Additional styles and font weights are used to create hierarchy and emphasis within the text.
+
+## Templates
+
+### Base Template (`base.html`)
+
+The base template provides the overall structure for the application and common styles. It serves as the foundation for all other templates.
+
+### Landing Page (`landing.html`)
+
+The landing page template is the first page users see when they visit the application. It provides an overview of the platform and highlights some of the latest stories.
+
+### Story List (`stories/story_list.html`)
+
+The story list template displays a list of all stories shared by users. It includes links to view individual story details and options to add new stories.
+
+### Story Detail (`stories/story_detail.html`)
+
+The story detail template displays the full content of a specific story, along with comments and likes. Users can interact with the story by liking it and leaving comments.
+
+### Add Story (`stories/add_story.html`)
+
+The add story template provides a form for users to submit new stories. It includes fields for the story title and content.
+
+### Edit Story (`stories/edit_story.html`)
+
+The edit story template provides a form for users to edit their existing stories. It pre-fills the form with the current story details.
+
+### Delete Story (`stories/delete_story.html`)
+
+The delete story template provides a confirmation prompt for users to delete their stories. It ensures that users do not accidentally delete their content.
+
+### Profile (`stories/profile.html`)
+
+The profile template displays the user's profile information, including their bio and profile picture. Users can view and edit their profile details.
+
+### Edit Profile (`stories/edit_profile.html`)
+
+The edit profile template provides a form for users to update their profile information, including their bio and profile picture.
+
+### Delete Profile (`stories/delete_profile.html`)
+
+The delete profile template provides a confirmation prompt for users to delete their profiles. It ensures that users do not accidentally delete their accounts.
+
+### Signup (`registration/signup.html`)
+
+The signup template provides a form for users to create a new account. It includes fields for the username, email, and password.
+
+### Login (`registration/login.html`)
+
+The login template provides a form for users to log in to their accounts. It includes fields for the username and password.
+
+### Password Change (`registration/password_change.html`)
+
+The password change template provides a form for users to change their passwords. It includes fields for the current password and the new password.
+
+## Views
+
+### Landing Page View (`landing_page`)
+
+This view function returns the landing page with the latest 6 stories.
+
+### Story List View (`story_list`)
+
+This view function returns a list of all stories, ordered by creation date.
+
+### Signup View (`signup`)
+
+This view function handles user signup by displaying a signup form and saving the user to the database.
+
+### Story Detail View (`story_detail`)
+
+This view function returns the details of a specific story, including comments and likes. It also handles the submission of new comments.
+
+### Add Story View (`add_story`)
+
+This view function provides a form for users to submit new stories. It requires the user to be logged in.
+
+### Edit Story View (`edit_story`)
+
+This view function provides a form for users to edit their existing stories. It requires the user to be logged in and the author of the story.
+
+### Delete Story View (`delete_story`)
+
+This view function provides a confirmation prompt for users to delete their stories. It requires the user to be logged in and the author of the story.
+
+### Profile View (`profile_view`)
+
+This view function returns the user's profile information, including their bio and profile picture. It requires the user to be logged in.
+
+### Edit Profile View (`edit_profile`)
+
+This view function provides a form for users to update their profile information, including their bio and profile picture. It requires the user to be logged in.
+
+### Delete Profile View (`delete_profile`)
+
+This view function provides a confirmation prompt for users to delete their profiles. It requires the user to be logged in.
+
+### Custom Login View (`custom_login`)
+
+This view function handles user login by displaying a login form and authenticating the user.
+
+### Toggle Like View (`toggle_like`)
+
+This view function allows users to like or unlike a story. It requires the user to be logged in.
+
+### Login Success Signal (`login_success`)
+
+This signal handler displays a welcome message when a user logs in successfully.
+
+### Logout Success Signal (`logout_success`)
+
+This signal handler displays a logout message when a user logs out successfully.
+
+## Testing and Validation
+
+### HTML Validation
+
+The HTML code was validated using the W3C Markup Validation Service to ensure it adheres to web standards and is free of errors.
+
+### CSS Validation
+
+The CSS code was validated using the W3C CSS Validation Service (Jigsaw) to ensure it adheres to web standards and is free of errors.
+
+### JavaScript Validation
+
+The JavaScript code was validated using JSLint to ensure it adheres to best practices and is free of errors.
+
+### Python Code Validation
+
+The Python code was validated using a continuous integration (CI) pipeline with a Python linter to ensure it adheres to best practices and is free of errors.
+
+
+
+
 
 
 
