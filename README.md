@@ -1,6 +1,7 @@
 # StoryTime
 
 StoryTime is a web application where users can read and share their stories with the world. Users can create an account, log in, add stories, view profiles, and delete their profiles.
+![Screenshot 2025-03-23 142119](https://github.com/user-attachments/assets/f8441856-6f90-44fe-b57c-141970270fbb)
 
 ## Introduction
 
