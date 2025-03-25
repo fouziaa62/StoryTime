@@ -412,6 +412,41 @@ The JavaScript code was validated using JSLint to ensure it adheres to best prac
 
 The Python code was validated using a continuous integration (CI) pipeline with a Python linter to ensure it adheres to best practices and is free of errors.
 
+## Manual Testing
+
+This section outlines a list of manual test cases to ensure that the core functionalities of the **StoryShare** application work as expected.
+
+### 1. User Authentication Tests
+- [x] **Create User Account** – Users should be able to sign up successfully.
+- [x] **Login** – Users should be able to log in with valid credentials.
+- [x] **Logout** – Logged-in users should be able to log out successfully.
+- [x] **Superuser Access Admin Panel** – Only superusers should access `/admin/`.
+- [x] **Non-Superuser Cannot Access Admin Panel** – Regular users should be restricted from `/admin/`.
+
+### 2. Story Management Tests
+- [x] **Users Can Write a Story** – Authenticated users should be able to create a new story.
+- [x] **Users Can Edit Only Their Own Stories** – Users should only edit the stories they created.
+- [x] **Users Cannot Add a Story Without a Title** – The system should not allow empty titles.
+- [x] **Users Can Delete Their Story** – Users should be able to delete their own stories.
+- [x] **Users Can Write a Limited Number of Words** – There should be a word limit for stories.
+
+### 3. Profile Management Tests
+- [x] **Users Can Make a Profile** – Users should be able to create a profile.
+- [x] **Users Can Edit Their Profile** – Only the profile owner can edit their profile.
+- [x] **Users Can Delete Their Profile** – Users should be able to delete their own profile.
+- [x] **Bio Has a Word Limit** – The bio section should not exceed the set word limit.
+
+### 4. Interaction Tests (Comments & Likes)
+- [x] **Users Can Comment on a Story** – Logged-in users should be able to comment.
+- [x] **Users Can Only Like a Story Once** – A user should not be able to like a story multiple times.
+- [x] **Comments Have a Word Limit** – Users should not exceed the set word limit for comments.
+
+---
+
+
+This checklist ensures a fully functional and user-friendly application. 
+
+
 
 
 
