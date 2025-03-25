@@ -238,6 +238,12 @@ Perform load testing to identify performance bottlenecks and optimize the databa
 Set up monitoring to track database performance metrics such as query execution time, slow queries, and resource utilization. Use tools like pgAdmin, New Relic, or Datadog to monitor and analyze database performance.
 
 ## Agile Development
+This project follows the **Agile methodology** for project management and development.
+Kanaban Board was used for tracking throughout the project Development:
+https://github.com/users/fouziaa62/projects/10
+
+![Screenshot 2025-03-21 150858](https://github.com/user-attachments/assets/470d1056-de83-4a67-b008-8a92578c3a27)
+
 
 ### Iterative Development
 
@@ -546,6 +552,53 @@ Using AI tools has been a valuable asset in this project. It has saved time, opt
 ---
 
 This section highlights the ways in which AI has improved the development, testing, and optimization of the **StoryShare** project. Feel free to adjust any specific details to match your project’s actual AI usage!
+
+# **Future Additions**
+
+This project is continuously evolving, and here are some exciting features that will be added in the future:
+
+## **1. Author Profile**
+- Users will be able to create detailed author profiles with more information about themselves, including their social media links and a more customizable bio.
+- Users can view other authors' profiles to explore their works and follow them.
+
+## **2. Direct Messaging**
+- A messaging system will be implemented, allowing users to send private messages to each other.
+- This feature will facilitate better communication between authors and readers.
+
+## **3. Story Categories**
+- The ability to categorize stories based on genres (e.g., Romance, Mystery, Fantasy) will be introduced.
+- Users can filter stories by category to make navigation easier and more enjoyable.
+
+## **4. Story Drafts**
+- Authors will be able to save their stories as drafts before publishing them.
+- Users can edit and continue working on drafts without the pressure of completing the story in one go.
+
+## **5. Follow Options**
+- A follow feature will allow users to follow their favorite authors and get notified of new story uploads.
+- This will enhance community engagement and keep readers connected with their favorite creators.
+
+---
+
+These features will be developed in the upcoming versions of the project to further enhance the user experience and functionality.
+
+# **Credits**
+
+This project was made possible with the help of various tools and resources. Special thanks to the following:
+
+## **1. GitHub Copilot**
+A special thank you to **GitHub Copilot**, an AI-powered code completion tool that assisted in generating and optimizing code throughout the project. Copilot helped streamline the development process by suggesting snippets and solving common coding problems.
+
+## **2. W3Schools**
+A big thank you to **W3Schools** for being an invaluable resource during development. The tutorials and documentation provided on **HTML**, **CSS**, **JavaScript**, **Bootstrap**, and other web technologies were immensely helpful in building this project.
+
+Website: [https://www.w3schools.com](https://www.w3schools.com)
+
+## **3. ChatGPT**
+Thanks to **ChatGPT** for providing assistance with generating user stories, and even helping with explainig some bugs.
+
+## **4. My Slack Channel**
+A big thank you to the members of my **Slack Channel** for providing feedback, suggestions, and moral support throughout the development process. The discussions and collaborations with fellow developers have been invaluable in solving challenges and improving the project.
+
 
 
 
